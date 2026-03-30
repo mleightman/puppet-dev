@@ -1,20 +1,21 @@
 <div class="phase" data-phase="00">
   <h1>Phase 0 — Mindset</h1>
-  <p class="phase-subtitle">What vibe coding actually is and why directing AI is a skill.</p>
+  <p class="phase-subtitle">You don't need to learn to code. You need to learn to communicate.</p>
 
   <div class="learning-objectives">
     <p>What you'll learn</p>
     <ul>
-      <li>Understand what vibe coding is and why it's a real skill</li>
+      <li>Why building software is now a communication skill, not a technical one</li>
       <li>Know the difference between Claude products (claude.ai vs Claude Code)</li>
       <li>Understand your role as director — not coder</li>
       <li>Know Claude's limitations and how to work around them</li>
     </ul>
   </div>
 
-  <h2>What Is Vibe Coding?</h2>
-  <p>Vibe coding is a way of building software where you don't write code yourself. You describe what you want in plain English, an AI writes the code, and you verify it works. You're the director. The AI is the developer.</p>
-  <p>This isn't cheating. It isn't easy. Directing an AI to build something that works requires clarity, patience, and a specific set of skills that this guide teaches you.</p>
+  <h2>You Can Just Build Things</h2>
+  <p>Here's the thing nobody told you: you can build real software right now. Not toy demos. Not templates. Real apps that real people use — and you don't need to write a single line of code to do it.</p>
+  <p>You describe what you want in plain English. An AI writes the code. You check that it works. That's the whole process.</p>
+  <p>If that sounds too good to be true, here's the catch: it requires a specific kind of skill. Not a technical skill — a <strong>communication skill</strong>. The better you are at describing what you want, checking the work, and course-correcting when something's off, the better the results. This guide teaches you exactly that.</p>
 
   <h2>The Cast</h2>
   <p>Think of it like a puppet show. You're the <strong>puppet master</strong> — you decide what gets built, when, and how to check the work. Claude is the <strong>puppet developer</strong> — it writes all the code, but only what you tell it to.</p>
@@ -26,10 +27,16 @@
     <tbody>
       <tr><td><strong>Claude</strong></td><td>The AI model (the brain)</td><td>The puppet developer's brain</td></tr>
       <tr><td><strong>claude.ai</strong></td><td>Web chat — talk to Claude in your browser</td><td>The briefing room — where you plan</td></tr>
-      <tr><td><strong>Claude Code</strong></td><td>CLI tool — Claude in your terminal, reads and writes your actual files</td><td>The workshop — where things get built</td></tr>
-      <tr><td><strong>Claude Code Desktop</strong></td><td>Desktop app (Mac/Windows) — same as CLI but with a window</td><td>The workshop with a nicer door</td></tr>
+      <tr><td><strong>Claude Code</strong></td><td>CLI (command-line interface) tool — Claude in your terminal, reads and writes your actual files</td><td>The workshop — where things get built</td></tr>
     </tbody>
   </table>
+
+  <details class="explainer">
+    <summary>What is a CLI?</summary>
+    <div class="explainer-content">
+      <p>CLI stands for Command-Line Interface. It's a way of using software by typing text commands instead of clicking buttons. When you hear "CLI tool," it just means a tool you use by typing in a terminal window. Claude Code is a CLI tool — you type instructions, Claude reads them and does the work.</p>
+    </div>
+  </details>
 
   <h2>What You'll Have by End of Day</h2>
   <p>If you work through this guide in order, by the end of the day you'll have:</p>
@@ -41,7 +48,7 @@
   </ol>
 
   <h2>What You'll Understand (and What You Won't)</h2>
-  <p>You will <strong>not</strong> understand the code Claude writes. That's fine. Here's what you <strong>will</strong> understand:</p>
+  <p>You will <strong>not</strong> understand the code Claude writes. That's fine — and that's the point. Here's what you <strong>will</strong> understand:</p>
 
   <table>
     <thead>
@@ -59,7 +66,7 @@
   <p>Your job is to verify <strong>behavior</strong>, not read <strong>syntax</strong>. "Does the button work?" not "Is line 47 correct?"</p>
 
   <h2>What Claude Can't Do</h2>
-  <p>Claude is powerful, but it has limits. Here's each limit and how you work around it:</p>
+  <p>Claude is powerful, but it has limits. Knowing these upfront saves you frustration later:</p>
 
   <table>
     <thead>
@@ -79,17 +86,17 @@
       <tr>
         <td>Can't run servers</td>
         <td>Claude runs commands, not long-running services</td>
-        <td>Railway (Phase 3) runs your server. Claude just writes the code.</td>
+        <td>Railway (<a href="#phase-03">Phase 3</a>) runs your server. Claude just writes the code.</td>
       </tr>
       <tr>
         <td>Context window has limits</td>
         <td>Very long sessions make Claude forget earlier work</td>
-        <td>Start fresh sessions. Your CLAUDE.md (Phase 8) keeps context across sessions.</td>
+        <td>Start fresh sessions. Your CLAUDE.md (<a href="#phase-08">Phase 8</a>) keeps context across sessions.</td>
       </tr>
       <tr>
         <td>No memory by default</td>
         <td>Claude doesn't remember what you did last session</td>
-        <td>CLAUDE.md and the memory system (Phase 8) solve this completely.</td>
+        <td>CLAUDE.md and the memory system (<a href="#phase-08">Phase 8</a>) solve this completely.</td>
       </tr>
     </tbody>
   </table>
