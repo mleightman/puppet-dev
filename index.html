@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Puppet Developer Installation</title>
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Prevent dark mode flash: apply theme before render -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('puppet-dev-theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else if (saved === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {
+        // localStorage unavailable — default to light
+      }
+    })();
+  </script>
+</head>
+<body>
+  <!-- Skip to content (accessibility) -->
+  <a href="#content" class="skip-to-content">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <h1 class="site-title">The Puppet Developer Installation</h1>
+    </div>
+    <div class="header-right">
+      <div class="os-toggle" role="group" aria-label="Operating system">
+        <button class="os-btn active" data-os-select="mac" aria-pressed="true">Mac</button>
+        <button class="os-btn" data-os-select="win" aria-pressed="false">Windows</button>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-icon-light" aria-hidden="true">&#9790;</span>
+        <span class="theme-icon-dark" aria-hidden="true">&#9728;</span>
+      </button>
+      <div class="progress-wrapper" aria-label="Course progress">
+        <div class="progress-bar">
+          <div class="progress-fill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="20"></div>
+        </div>
+        <span class="progress-text">0 / 20</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar-backdrop" aria-hidden="true"></div>
+  <nav class="sidebar" aria-label="Phase navigation">
+    <div class="sidebar-header">
+      <span class="sidebar-label">Phases</span>
+    </div>
+    <ul class="nav-list">
+      <li><a href="#phase-00" class="nav-item" data-phase="00"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">0</span> Mindset</a></li>
+      <li><a href="#phase-01" class="nav-item" data-phase="01"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">1</span> Project Scope</a></li>
+      <li><a href="#phase-02" class="nav-item" data-phase="02"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">2</span> GitHub</a></li>
+      <li><a href="#phase-03" class="nav-item" data-phase="03"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">3</span> Railway</a></li>
+      <li><a href="#phase-04" class="nav-item" data-phase="04"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">4</span> Env Vars &amp; Databases</a></li>
+      <li><a href="#phase-05" class="nav-item" data-phase="05"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">5</span> Terminal Setup</a></li>
+      <li><a href="#phase-06" class="nav-item" data-phase="06"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">6</span> Claude Code CLI</a></li>
+      <li><a href="#phase-07" class="nav-item" data-phase="07"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">7</span> Settings &amp; Plugins</a></li>
+      <li><a href="#phase-08" class="nav-item" data-phase="08"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">8</span> CLAUDE.md</a></li>
+      <li><a href="#phase-09" class="nav-item" data-phase="09"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">9</span> Daily Skills</a></li>
+      <li><a href="#phase-10" class="nav-item" data-phase="10"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">10</span> The -c -i Loop</a></li>
+      <li><a href="#phase-11" class="nav-item" data-phase="11"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">11</span> NUTS Workflow</a></li>
+      <li><a href="#phase-12" class="nav-item" data-phase="12"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">12</span> Steering &amp; Rules</a></li>
+      <li><a href="#phase-13" class="nav-item" data-phase="13"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">13</span> Documentation</a></li>
+      <li><a href="#phase-14" class="nav-item" data-phase="14"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">14</span> Testing</a></li>
+      <li><a href="#phase-15" class="nav-item" data-phase="15"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">15</span> When Things Go Wrong</a></li>
+      <li><a href="#phase-16" class="nav-item" data-phase="16"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">16</span> Multi-Window</a></li>
+      <li><a href="#phase-17" class="nav-item" data-phase="17"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">17</span> Telegram</a></li>
+      <li><a href="#phase-18" class="nav-item" data-phase="18"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">18</span> Cloud Tasks</a></li>
+      <li><a href="#phase-19" class="nav-item" data-phase="19"><span class="nav-check" aria-hidden="true"></span><span class="nav-number">19</span> Reference</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="content" class="content">
+    <noscript>
+      <div class="noscript-message">
+        <h2>JavaScript Required</h2>
+        <p>This site requires JavaScript to load phase content and interactive features. Please enable JavaScript in your browser settings.</p>
+      </div>
+    </noscript>
+    <!-- Phase content is loaded here via fetch -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Built by Puppet Dev Studios.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
