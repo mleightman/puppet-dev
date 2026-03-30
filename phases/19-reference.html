@@ -2,7 +2,156 @@
   <h1>Phase 19 — Reference</h1>
   <p class="phase-subtitle">Full command reference, glossary, and troubleshooting.</p>
 
-  <p>Content coming soon.</p>
+  <p>This is the cheat sheet you bookmark. Terse, no explanation — the earlier phases teach these in context.</p>
+
+  <h2>Command Reference</h2>
+
+  <h3>Core (Daily Use)</h3>
+  <table>
+    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+    <tbody>
+      <tr><td><code>-go</code></td><td>Resume focused work immediately, no preamble</td></tr>
+      <tr><td><code>-c</code></td><td>Adversarial critique of the previous response</td></tr>
+      <tr><td><code>-i</code></td><td>Implement all valid criticisms, no asking</td></tr>
+      <tr><td><code>-build</code></td><td>Implement the current scoped task completely</td></tr>
+      <tr><td><code>-cs</code></td><td>Clean and saved? Check for uncommitted/unpushed work</td></tr>
+      <tr><td><code>-cp</code></td><td>Commit and push</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Critique Variants</h3>
+  <table>
+    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+    <tbody>
+      <tr><td><code>-c{N}</code></td><td>Multi-option critique — N distinct approaches per issue</td></tr>
+      <tr><td><code>-ec</code></td><td>Elaborate on previous criticism</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Planning &amp; Assessment</h3>
+  <table>
+    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+    <tbody>
+      <tr><td><code>-present</code></td><td>Propose implementation plan before coding</td></tr>
+      <tr><td><code>-nuts</code></td><td>Start the NUTS flow (guided, pauses for input)</td></tr>
+      <tr><td><code>-autonuts</code></td><td>Run full NUTS autonomously (no pausing)</td></tr>
+      <tr><td><code>-status</code></td><td>Deep honest assessment of the project</td></tr>
+      <tr><td><code>-audit{N}</code></td><td>Self-audit with N diagnostic questions</td></tr>
+      <tr><td><code>-health</code></td><td>Check running services and infrastructure</td></tr>
+      <tr><td><code>-o</code></td><td>Present 3-5 options with tradeoffs</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Information</h3>
+  <table>
+    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+    <tbody>
+      <tr><td><code>-e</code></td><td>Expound — deeper explanation</td></tr>
+      <tr><td><code>-f</code></td><td>Fact-check all claims in previous message</td></tr>
+      <tr><td><code>-r</code></td><td>Full standalone summary of the entire chat</td></tr>
+      <tr><td><code>-help</code></td><td>Quick reference of all commands with context-aware guidance</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Documentation</h3>
+  <table>
+    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+    <tbody>
+      <tr><td><code>-ncd</code></td><td>Project context checkpoint</td></tr>
+      <tr><td><code>-ud</code></td><td>Update all docs — check for stale content</td></tr>
+      <tr><td><code>-stats</code></td><td>Git/codebase stats as a shareable table</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Todo Management</h3>
+  <table>
+    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+    <tbody>
+      <tr><td><code>-todo</code></td><td>Show current to-do list</td></tr>
+      <tr><td><code>-todo add &lt;task&gt;</code></td><td>Add a task</td></tr>
+      <tr><td><code>-todo done &lt;N&gt;</code></td><td>Mark task N as done</td></tr>
+      <tr><td><code>-todo remove &lt;N&gt;</code></td><td>Remove task N</td></tr>
+      <tr><td><code>-todo tag &lt;N&gt; &lt;depth&gt;</code></td><td>Tag task for overnight cloud work</td></tr>
+      <tr><td><code>-todo untag &lt;N&gt;</code></td><td>Remove overnight tag</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Handoff</h3>
+  <table>
+    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+    <tbody>
+      <tr><td><code>-wrap</code></td><td>End-of-night handoff — recap, tag todos, archive completed</td></tr>
+      <tr><td><code>-gm</code></td><td>Good morning — fetch overnight work, show status and plan</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Cloud</h3>
+  <table>
+    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+    <tbody>
+      <tr><td><code>-cloud &lt;desc&gt; &lt;time&gt;</code></td><td>Schedule a cloud task</td></tr>
+      <tr><td><code>-cc</code></td><td>Cloud check — what was done overnight</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Steering Phrases</h2>
+  <table>
+    <thead><tr><th>Say This</th><th>Effect</th></tr></thead>
+    <tbody>
+      <tr><td>"Do not implement yet"</td><td>Plan only, no code</td></tr>
+      <tr><td>"Just fix that one issue"</td><td>No scope expansion</td></tr>
+      <tr><td>"Continue to ask questions"</td><td>All questions before any code</td></tr>
+      <tr><td>"I was just calling out one error"</td><td>Fix only what was mentioned</td></tr>
+      <tr><td>"Interview style to talk through this plan"</td><td>Collaborative Q&amp;A, one question at a time</td></tr>
+      <tr><td>"Make sure you understand"</td><td>Pause and confirm understanding first</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Troubleshooting</h2>
+  <table>
+    <thead><tr><th>When This Happens</th><th>Do This</th></tr></thead>
+    <tbody>
+      <tr><td>Claude forgets earlier work</td><td><code>/compact</code> or start a fresh session</td></tr>
+      <tr><td>Claude goes in the wrong direction</td><td>Press <strong>Escape</strong>, then redirect</td></tr>
+      <tr><td>Claude adds features you didn't ask for</td><td>"Just fix that one issue" or point at exclusion list</td></tr>
+      <tr><td>Deploy fails</td><td>Copy Railway error logs, paste to Claude</td></tr>
+      <tr><td>Something that worked stops working</td><td><code>-status</code> then check recent commits</td></tr>
+      <tr><td>Claude invents bugs</td><td>Never say "find and fix bugs" — describe specific symptoms</td></tr>
+      <tr><td>Session feels sluggish</td><td>Start a fresh session — long contexts burn tokens</td></tr>
+      <tr><td>CLAUDE.md didn't load</td><td>Check for the session greeting, restart if missing</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Glossary</h2>
+  <table>
+    <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Repository (repo)</strong></td><td>A project folder on GitHub that tracks all changes</td></tr>
+      <tr><td><strong>Commit</strong></td><td>A saved snapshot of your project at a point in time</td></tr>
+      <tr><td><strong>Branch</strong></td><td>A separate copy of your project for making changes safely</td></tr>
+      <tr><td><strong>Push</strong></td><td>Upload local changes to GitHub</td></tr>
+      <tr><td><strong>Pull</strong></td><td>Download latest changes from GitHub</td></tr>
+      <tr><td><strong>Deploy</strong></td><td>Upload code to a server and make it available to users</td></tr>
+      <tr><td><strong>Environment variable</strong></td><td>A secret your app reads at startup, stored on the server</td></tr>
+      <tr><td><strong>Terminal</strong></td><td>A text-based interface for controlling your computer</td></tr>
+      <tr><td><strong>CLI</strong></td><td>Command Line Interface — a tool you use by typing commands</td></tr>
+      <tr><td><strong>API</strong></td><td>A way for programs to talk to each other</td></tr>
+      <tr><td><strong>Convergence</strong></td><td>When critique passes find zero actionable issues — work is clean</td></tr>
+      <tr><td><strong>Scope creep</strong></td><td>When features get added that weren't in the original plan</td></tr>
+      <tr><td><strong>PR (Pull Request)</strong></td><td>A proposal to merge code changes into the main branch</td></tr>
+      <tr><td><strong>Token</strong></td><td>Unit of AI usage — every message, file read, and tool call costs tokens</td></tr>
+      <tr><td><strong>MCP</strong></td><td>Model Context Protocol — the plugin system for Claude Code</td></tr>
+      <tr><td><strong>NUTS</strong></td><td>No Uncritiqued Task Ships — the 8-step quality workflow</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Useful Links</h2>
+  <ul>
+    <li><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code Documentation</a></li>
+    <li><a href="https://claude.ai" target="_blank" rel="noopener">claude.ai (Web Chat)</a></li>
+    <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+    <li><a href="https://railway.app" target="_blank" rel="noopener">Railway</a></li>
+  </ul>
 
   <div class="phase-checklist">
     <label>

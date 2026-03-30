@@ -2,7 +2,74 @@
   <h1>Phase 17 — Telegram</h1>
   <p class="phase-subtitle">Control Claude Code from your phone.</p>
 
-  <p>Content coming soon.</p>
+  <p>Send tasks to Claude from Telegram while you're away from the computer. Claude does the work, sends you updates, and you review the results from your phone.</p>
+
+  <h2>What You Need</h2>
+  <ul>
+    <li>A Telegram account</li>
+    <li>A Telegram bot (you'll create one)</li>
+    <li>The <code>telegram</code> MCP plugin configured in Claude Code (Phase 7)</li>
+    <li><strong>Bypass permissions must be ON</strong> (Phase 7) — you can't approve permission prompts from your phone</li>
+  </ul>
+
+  <h2>Setup</h2>
+  <ol>
+    <li>Open Telegram and search for <strong>@BotFather</strong></li>
+    <li>Send <code>/newbot</code> and follow the prompts to create your bot</li>
+    <li>BotFather gives you a <strong>bot token</strong> — save it</li>
+    <li>In Claude Code, run <code>/telegram:configure</code> and paste your bot token</li>
+    <li>Run <code>/telegram:access</code> to approve your Telegram account</li>
+    <li>Keep your computer awake while Claude works:
+      <div data-os="mac">
+        <pre><code>caffeinate -dims</code></pre>
+        <p>Run this in a separate terminal tab. It prevents your Mac from sleeping.</p>
+      </div>
+      <div data-os="win">
+        <p>Adjust your power settings to prevent sleep, or use a keep-awake utility.</p>
+      </div>
+    </li>
+    <li>Verify bypass permissions are enabled in <code>~/.claude/settings.json</code></li>
+  </ol>
+
+  <h2>How It Works</h2>
+  <ol>
+    <li>You send a message to your bot from Telegram</li>
+    <li>Claude Code receives it and <strong>immediately acknowledges</strong> (says what it's about to do)</li>
+    <li>Claude does the work — reading files, making changes, running commands</li>
+    <li>Every status update is a <strong>new message</strong> (not an edit — edits don't trigger phone notifications)</li>
+    <li>When done, Claude sends a completion message with elapsed time</li>
+  </ol>
+
+  <h2>Telegram Behavior Rules</h2>
+  <p>These are taught to Claude via your CLAUDE.md:</p>
+
+  <table>
+    <thead>
+      <tr><th>Rule</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Instant ack before doing work</td><td>So you know Claude received the message</td></tr>
+      <tr><td>New messages only, never edit</td><td>Edits don't trigger push notifications</td></tr>
+      <tr><td>Show duration on completion (<code>MM:SS</code>)</td><td>So you know how long it took</td></tr>
+      <tr><td>Narrate what you're doing</td><td>You can't see tool calls from your phone</td></tr>
+    </tbody>
+  </table>
+
+  <h2>What You Can Do from Telegram</h2>
+  <ul>
+    <li><code>Run -status and tell me what's broken</code></li>
+    <li><code>Plan the next feature on the todo list</code></li>
+    <li><code>Run -audit10 and send me the findings</code></li>
+    <li><code>Commit and push the current changes</code></li>
+    <li>Morning briefings sent to your phone automatically</li>
+  </ul>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>Telegram bot APIs or webhook configuration — Claude handles the setup</li>
+    <li>Security — access control limits who can send commands to your bot</li>
+    <li>Using this on day one — set it up when you want remote access</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>

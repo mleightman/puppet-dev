@@ -2,7 +2,88 @@
   <h1>Phase 18 — Cloud Tasks</h1>
   <p class="phase-subtitle">Claude works overnight while you sleep.</p>
 
-  <p>Content coming soon.</p>
+  <p>Scheduled cloud agents let you give Claude work to do while you're away. You go to bed, Claude plans your next feature. You wake up, the plan is ready to review.</p>
+
+  <h2>The Concept</h2>
+  <p>Instead of running Claude Code on your computer, you schedule a task that runs in the cloud on a timer. When you wake up, the work is done — sitting on a branch, ready for you to review.</p>
+
+  <h2>The End-of-Night Handoff</h2>
+  <p>Before you stop for the night, run:</p>
+  <pre><code>-wrap</code></pre>
+  <p>This does:</p>
+  <ol>
+    <li>Session recap — what you worked on, what got committed</li>
+    <li>Shows open todos</li>
+    <li>Tags 1-2 items with NUTS depth tags for the overnight cloud task</li>
+    <li>Auto-archives completed items</li>
+    <li>Commits and pushes <code>docs/TODO.md</code></li>
+  </ol>
+
+  <h2>NUTS Depth Tags</h2>
+  <p>Tags control how deep the overnight agent goes on each task:</p>
+
+  <table>
+    <thead>
+      <tr><th>Tag</th><th>What Runs Overnight</th><th>Output</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>[PLAN]</code></td><td>Plan only</td><td>A plan doc</td></tr>
+      <tr><td><code>[PC]</code></td><td>Plan + Critique (converge)</td><td>A refined plan doc</td></tr>
+      <tr><td><code>[PCA]</code></td><td>Plan + Critique + Audit</td><td>An audited plan doc</td></tr>
+      <tr><td><code>[BUILD]</code></td><td>Full NUTS through code</td><td>Code on a feature branch</td></tr>
+      <tr><td><code>[AUTO]</code></td><td>Full autonuts (all steps)</td><td>Ready to merge</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Recommendation:</strong> Start with <code>[PLAN]</code> or <code>[PC]</code>. Building code overnight is less reliable — review plans in the morning and build locally.</p>
+
+  <h2>The Morning Routine</h2>
+  <pre><code>-gm</code></pre>
+  <p>Good morning. This command:</p>
+  <ol>
+    <li>Fetches today's daily branch (if it exists)</li>
+    <li>Reads the overnight summary</li>
+    <li>Presents: status, plan summaries, critical blockers</li>
+    <li>Asks what you want to do: pick up planned items, address blockers, or something else</li>
+  </ol>
+
+  <h2>Setting Up a Cloud Task</h2>
+  <p>Use the <code>-cloud</code> command:</p>
+  <pre><code>-cloud "Plan the user authentication feature" 6am</code></pre>
+  <p>This schedules a cloud agent to run at 6am, creating a plan doc for user authentication.</p>
+
+  <h2>Depth Options for <code>-cloud</code></h2>
+
+  <table>
+    <thead>
+      <tr><th>Depth</th><th>What Runs</th><th>Default?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Plan only</td><td>Research + write plan doc</td><td></td></tr>
+      <tr><td>Plan + Critique</td><td>Plan, critique until convergence</td><td>Default</td></tr>
+      <tr><td>Plan + Critique + Audit</td><td>Adds audit5 with "what worries you?"</td><td></td></tr>
+      <tr><td>Build</td><td>Full NUTS through code</td><td>Warn: less reliable in cloud</td></tr>
+      <tr><td>Auto</td><td>Full autonuts</td><td>Warn: recommend local</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Checking What Was Done</h2>
+  <pre><code>-cc</code></pre>
+  <p>Cloud check. Fetches all remote branches, checks which feature branches are ahead of main, reads the overnight briefing, and summarizes what's ready to merge.</p>
+
+  <h2>Rules</h2>
+  <ul>
+    <li>Max 2 tagged items per night</li>
+    <li>Tags are removed from TODO after the morning task processes them</li>
+    <li>Start with planning-only depths until you're comfortable</li>
+  </ul>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>Cloud task infrastructure — it runs on Anthropic's servers</li>
+    <li>Build-depth overnight tasks — plan + critique is the sweet spot</li>
+    <li>Setting this up on day one — it's a workflow optimization for later</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>

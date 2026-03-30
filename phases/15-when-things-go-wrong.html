@@ -2,7 +2,84 @@
   <h1>Phase 15 — When Things Go Wrong</h1>
   <p class="phase-subtitle">Every beginner hits a wall. Here's how you recover.</p>
 
-  <p>Content coming soon.</p>
+  <p>Things will break. That's normal. The difference between getting stuck and recovering quickly is knowing the right thing to say to Claude. This phase covers the most common failure modes and exactly how to handle each one.</p>
+
+  <h2>Deploy Fails</h2>
+  <p><strong>What it looks like:</strong> You push code to GitHub, Railway tries to deploy, and the status shows "Failed" or "Crashed." Your live site might show an error or go down.</p>
+
+  <p><strong>What to do:</strong></p>
+  <ol>
+    <li>Go to the Railway dashboard and click on your deployment</li>
+    <li>Click <strong>Deploy Logs</strong> — this shows the error message</li>
+    <li>Copy the error message</li>
+    <li>Tell Claude: <code>This deploy failed. Here's the error: [paste error]</code></li>
+    <li>Claude will trace the issue and fix it</li>
+  </ol>
+
+  <p><strong>Most common causes:</strong></p>
+  <table>
+    <thead>
+      <tr><th>Error</th><th>Likely Cause</th><th>Fix</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>"DATABASE_URL not found"</td><td>Missing environment variable</td><td>Add it in Railway's Variables tab</td></tr>
+      <tr><td>"Cannot find module"</td><td>Missing dependency</td><td>Tell Claude: "add the missing dependency and push"</td></tr>
+      <tr><td>"Node version mismatch"</td><td>Wrong Node.js version on Railway</td><td>Tell Claude: "set the Node version in package.json"</td></tr>
+      <tr><td>"Build failed"</td><td>Code has a syntax error</td><td>Paste the full error to Claude</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Claude Writes Broken Code</h2>
+  <p><strong>What it looks like:</strong> You click a button and nothing happens. Or a page shows an error. Or the layout is completely wrong.</p>
+
+  <p><strong>What NOT to do:</strong></p>
+  <ul>
+    <li>Don't say "find and fix all the bugs" — Claude will invent problems that don't exist and break working code</li>
+    <li>Don't panic and rewrite everything</li>
+  </ul>
+
+  <p><strong>What to do:</strong></p>
+  <ol>
+    <li>Describe the <strong>specific symptom</strong>: "When I click the login button, I see a blank page instead of the form"</li>
+    <li>Take a screenshot if it's a visual bug and share it with Claude</li>
+    <li>Use <code>-c</code> to critique what Claude just built before shipping it</li>
+    <li>If Claude is going in circles, start a <strong>fresh session</strong> — sometimes Claude gets stuck in a bad mental model</li>
+  </ol>
+
+  <table>
+    <thead>
+      <tr><th>Bad (vague)</th><th>Good (specific)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>"Fix all the bugs"</td><td>"The login button shows a blank page instead of the form"</td></tr>
+      <tr><td>"It's broken"</td><td>"When I add a task and refresh, the task disappears"</td></tr>
+      <tr><td>"Something's wrong with the CSS"</td><td>"The sidebar overlaps the content on mobile — see the screenshot"</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Something That Worked Stops Working</h2>
+  <ol>
+    <li>Run <code>-status</code> — get an honest assessment of the project</li>
+    <li>Ask: <code>What changed since [feature] last worked?</code></li>
+    <li>Run <code>-audit5</code> to surface what might be wrong</li>
+    <li>Check recent commits: <code>git log --oneline -10</code></li>
+  </ol>
+
+  <h2>You're Lost or Overwhelmed</h2>
+  <table>
+    <thead>
+      <tr><th>Feeling</th><th>Command</th><th>What It Does</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>"Where am I?"</td><td><code>-r</code></td><td>Full summary of the current session</td></tr>
+      <tr><td>"What's the state of everything?"</td><td><code>-ncd</code></td><td>Context checkpoint of the whole project</td></tr>
+      <tr><td>"What can I even do?"</td><td><code>-help</code></td><td>All commands with guidance on what to do next</td></tr>
+      <tr><td>"I need to start over"</td><td><code>/clear</code></td><td>Fresh session (CLAUDE.md reloads automatically)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>The Golden Rule</h2>
+  <p><strong>Always describe what you see, not what you think the problem is.</strong> "The page shows a white screen after login" is better than "I think the auth token is expired." Let Claude trace the code path. Your job is to report symptoms, not diagnose.</p>
 
   <div class="phase-checklist">
     <label>

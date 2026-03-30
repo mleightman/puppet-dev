@@ -2,7 +2,53 @@
   <h1>Phase 16 — Multi-Window</h1>
   <p class="phase-subtitle">Run multiple Claude sessions — many planners, one builder.</p>
 
-  <p>Content coming soon.</p>
+  <p>You can run multiple Claude Code sessions at the same time. But there's one rule that keeps it from blowing up.</p>
+
+  <h2>The Rule: Many Planners, One Builder</h2>
+
+  <table>
+    <thead>
+      <tr><th>Activity</th><th>Touches Files?</th><th>How Many Windows?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Planning (<code>-present</code>, <code>-nuts</code> step 1, <code>-c</code> on a plan)</td><td>No — read-only</td><td>As many as you want</td></tr>
+      <tr><td>Building (<code>-build</code>, <code>-autonuts</code>, writing code)</td><td>Yes — writes files</td><td><strong>Only one at a time</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Why:</strong> Claude Code reads and writes your actual files. If two windows build simultaneously, they'll edit the same files, create merge conflicts, and cascade into a mess. Planning is read-only, so it's always safe to parallelize.</p>
+
+  <h2>How to Set It Up</h2>
+  <ol>
+    <li>Open multiple terminal tabs or windows</li>
+    <li>In each one, navigate to your project folder and run <code>claude</code></li>
+    <li>Mentally label each: "this one is planning," "this one is building"</li>
+    <li>When the builder finishes and pushes, another window can start building</li>
+  </ol>
+
+  <h2>Common Patterns</h2>
+
+  <table>
+    <thead>
+      <tr><th>Pattern</th><th>Window 1</th><th>Window 2</th><th>Window 3</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Build + plan ahead</strong></td><td>Building current task</td><td>Planning next task (<code>-present</code>)</td><td>—</td></tr>
+      <tr><td><strong>Autonuts + critique</strong></td><td>Running <code>-autonuts</code></td><td><code>-c</code> on a different plan doc</td><td><code>-status</code> check</td></tr>
+      <tr><td><strong>Never do this</strong></td><td>Building feature A</td><td>Building feature B</td><td>Both break</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Advanced: Git Worktrees</h2>
+  <p>For true parallel building, Claude can create <strong>worktrees</strong> — isolated copies of your repo where changes don't conflict. Each worktree is a separate folder with its own branch. Two builders can work simultaneously because they're editing different copies.</p>
+  <p>This is the escape hatch when you genuinely need two builders. But start with the "many planners, one builder" rule — it covers 90% of use cases.</p>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>Running out of terminal windows — your computer can handle many</li>
+    <li>Worktrees on day one — they're an advanced feature</li>
+    <li>Perfect window management — just remember the one rule</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>
