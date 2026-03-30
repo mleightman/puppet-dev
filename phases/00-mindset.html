@@ -1,120 +1,82 @@
 <div class="phase" data-phase="00">
   <h1>Phase 0 — Mindset</h1>
-  <p class="phase-subtitle">You don't need to learn to code. You need to learn to communicate.</p>
+  <p class="phase-subtitle">The only thing you need to understand before we start.</p>
 
-  <div class="learning-objectives">
-    <p>What you'll learn</p>
-    <ul>
-      <li>Why building software is now a communication skill, not a technical one</li>
-      <li>Know the difference between Claude products (claude.ai vs Claude Code)</li>
-      <li>Understand your role as director — not coder</li>
-      <li>Know Claude's limitations and how to work around them</li>
-    </ul>
-  </div>
-
-  <h2>You Can Just Build Things</h2>
-  <p>Here's the thing nobody told you: you can build real software right now. Not toy demos. Not templates. Real apps that real people use — and you don't need to write a single line of code to do it.</p>
-  <p>You describe what you want in plain English. An AI writes the code. You check that it works. That's the whole process.</p>
-  <p>If that sounds too good to be true, here's the catch: it requires a specific kind of skill. Not a technical skill — a <strong>communication skill</strong>. The better you are at describing what you want, checking the work, and course-correcting when something's off, the better the results. This guide teaches you exactly that.</p>
-
-  <h2>The Cast</h2>
-  <p>Think of it like a puppet show. You're the <strong>puppet master</strong> — you decide what gets built, when, and how to check the work. Claude is the <strong>puppet developer</strong> — it writes all the code, but only what you tell it to.</p>
+  <h2>You Are the Puppet Master</h2>
+  <p>You don't write code. You tell someone who does. Here's the cast:</p>
 
   <table>
     <thead>
-      <tr><th>Product</th><th>What It Is</th><th>Analogy</th></tr>
+      <tr><th>Who</th><th>Role</th><th>Where</th></tr>
     </thead>
     <tbody>
-      <tr><td><strong>Claude</strong></td><td>The AI model (the brain)</td><td>The puppet developer's brain</td></tr>
-      <tr><td><strong>claude.ai</strong></td><td>Web chat — talk to Claude in your browser</td><td>The briefing room — where you plan</td></tr>
-      <tr><td><strong>Claude Code</strong></td><td>CLI (command-line interface) tool — Claude in your terminal, reads and writes your actual files</td><td>The workshop — where things get built</td></tr>
+      <tr>
+        <td><strong>You</strong></td>
+        <td>The puppet master — you decide what gets built and check the work</td>
+        <td>Right here</td>
+      </tr>
+      <tr>
+        <td><strong>Claude (web chat)</strong></td>
+        <td>Your assistant — helps you plan, brainstorm, and write your project brief</td>
+        <td><a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a></td>
+      </tr>
+      <tr>
+        <td><strong>Claude Code</strong></td>
+        <td>The puppet — reads your files, writes code, runs commands, does what you tell it</td>
+        <td>Your terminal (CLI)</td>
+      </tr>
     </tbody>
   </table>
+
+  <p>That's the whole setup. You direct. Claude builds. This guide teaches you how to direct well.</p>
 
   <details class="explainer">
     <summary>What is a CLI?</summary>
     <div class="explainer-content">
-      <p>CLI stands for Command-Line Interface. It's a way of using software by typing text commands instead of clicking buttons. When you hear "CLI tool," it just means a tool you use by typing in a terminal window. Claude Code is a CLI tool — you type instructions, Claude reads them and does the work.</p>
+      <p>CLI stands for Command-Line Interface — a way of using software by typing text commands instead of clicking buttons. Claude Code is a CLI tool. You type instructions in a terminal window, Claude reads them and does the work.</p>
     </div>
   </details>
 
   <h2>What You'll Have by End of Day</h2>
-  <p>If you work through this guide in order, by the end of the day you'll have:</p>
   <ol>
-    <li>A real app, live on the internet, that you built by directing Claude</li>
+    <li>A real app, live on the internet</li>
     <li>A GitHub repository (your code's home)</li>
-    <li>A CLAUDE.md file that teaches Claude your project every session</li>
-    <li>A working knowledge of how to plan, critique, and ship features</li>
+    <li>A system that lets Claude remember your project between sessions</li>
+    <li>The skills to plan, critique, and ship features</li>
   </ol>
 
-  <h2>What You'll Understand (and What You Won't)</h2>
-  <p>You will <strong>not</strong> understand the code Claude writes. That's fine — and that's the point. Here's what you <strong>will</strong> understand:</p>
+  <h2>What You Won't Need to Understand</h2>
 
   <table>
     <thead>
-      <tr><th>You Will Understand</th><th>You Won't Understand (And Don't Need To)</th></tr>
+      <tr><th>Your Job</th><th>Not Your Job</th></tr>
     </thead>
     <tbody>
-      <tr><td>Your app's structure (which files do what)</td><td>The code inside those files</td></tr>
-      <tr><td>How to describe features clearly</td><td>How to write code that implements them</td></tr>
-      <tr><td>How to test if something works (by using the app)</td><td>How to read test files</td></tr>
-      <tr><td>How to spot when something is broken</td><td>How to fix code by hand</td></tr>
-      <tr><td>How to deploy your app to the internet</td><td>How servers work under the hood</td></tr>
+      <tr><td>Describe what you want clearly</td><td>Write code</td></tr>
+      <tr><td>Check if it works (click around, use the app)</td><td>Read the code</td></tr>
+      <tr><td>Spot when something is broken</td><td>Fix it by hand</td></tr>
+      <tr><td>Deploy your app to the internet</td><td>Understand how servers work</td></tr>
     </tbody>
   </table>
-
-  <p>Your job is to verify <strong>behavior</strong>, not read <strong>syntax</strong>. "Does the button work?" not "Is line 47 correct?"</p>
 
   <h2>What Claude Can't Do</h2>
-  <p>Claude is powerful, but it has limits. Knowing these upfront saves you frustration later:</p>
 
   <table>
     <thead>
-      <tr><th>Limitation</th><th>What It Means</th><th>The Workaround</th></tr>
+      <tr><th>Limitation</th><th>Workaround</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Can't browse the web live</td>
-        <td>Claude can't visit a URL and read what's there</td>
-        <td>Paste the content, share a screenshot, or use a plugin that gives Claude web access</td>
-      </tr>
-      <tr>
-        <td>Can't see your screen</td>
-        <td>Claude doesn't know what your app looks like right now</td>
-        <td>Take a screenshot and share it — Claude reads images</td>
-      </tr>
-      <tr>
-        <td>Can't run servers</td>
-        <td>Claude runs commands, not long-running services</td>
-        <td>Railway (<a href="#phase-03">Phase 3</a>) runs your server. Claude just writes the code.</td>
-      </tr>
-      <tr>
-        <td>Context window has limits</td>
-        <td>Very long sessions make Claude forget earlier work</td>
-        <td>Start fresh sessions. Your CLAUDE.md (<a href="#phase-08">Phase 8</a>) keeps context across sessions.</td>
-      </tr>
-      <tr>
-        <td>No memory by default</td>
-        <td>Claude doesn't remember what you did last session</td>
-        <td>CLAUDE.md and the memory system (<a href="#phase-08">Phase 8</a>) solve this completely.</td>
-      </tr>
+      <tr><td>Can't see your screen</td><td>Take a screenshot and share it</td></tr>
+      <tr><td>Forgets everything between sessions</td><td>CLAUDE.md fixes this (<a href="#phase-08">Phase 8</a>)</td></tr>
+      <tr><td>Long sessions get sluggish</td><td>Start fresh — CLAUDE.md reloads automatically</td></tr>
+      <tr><td>Can't run your app as a live server</td><td>Railway does that (<a href="#phase-03">Phase 3</a>)</td></tr>
     </tbody>
   </table>
-
-  <h2>Why Directing AI Is a Skill</h2>
-  <p>You wouldn't hand someone a hammer and say "build me a house." You'd give them blueprints, check their work at each stage, and course-correct when something's off. That's what you're learning here — not how to swing the hammer, but how to direct the person who does.</p>
-  <p>The skills you'll build:</p>
-  <ol>
-    <li><strong>Scoping</strong> — Defining exactly what to build (and what NOT to build)</li>
-    <li><strong>Directing</strong> — Giving clear instructions that produce the right output</li>
-    <li><strong>Critiquing</strong> — Checking work before it ships</li>
-    <li><strong>Recovering</strong> — Knowing what to do when things go wrong</li>
-  </ol>
 
   <details class="explainer">
     <summary>What is "shipping"?</summary>
     <div class="explainer-content">
-      <p>"Shipping" means making your work available to users. When you push code to GitHub and it auto-deploys to Railway, you've "shipped" it. It's live. People can use it.</p>
+      <p>"Shipping" means making your work available to users. When your code goes live and people can use it, you've shipped it.</p>
     </div>
   </details>
 
