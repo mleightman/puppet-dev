@@ -6,12 +6,13 @@
 ## Up Next
 
 - [ ] 1. Content quality pass — review all 20 phases for accuracy, flow, and completeness
+- [ ] 2. Sign in flow without blocking the main screen with an auth page
 
 ## Backlog
 
-- [ ] 2. Consider adding search functionality
-- [ ] 3. Consider progress export/share feature
-- [ ] 4. Consider adding estimated reading time per phase
+- [ ] 3. Consider adding search functionality
+- [ ] 4. Consider progress export/share feature
+- [ ] 5. Consider adding estimated reading time per phase
 
 ## Archived
 
