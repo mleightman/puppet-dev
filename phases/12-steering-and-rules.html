@@ -1,8 +1,83 @@
 <div class="phase" data-phase="12">
-  <h1>Phase 12 — Steering & Rules</h1>
+  <h1>Phase 12 — Steering &amp; Rules</h1>
   <p class="phase-subtitle">Control Claude precisely with phrases and hard rules.</p>
 
-  <p>Content coming soon.</p>
+  <p>Claude wants to be helpful. Sometimes too helpful — it'll add features you didn't ask for, refactor code that was fine, or build the wrong thing because it guessed instead of asked. This phase teaches you how to keep Claude on track.</p>
+
+  <h2>Steering Phrases</h2>
+  <p>Short phrases that override Claude's instinct to do more than you asked:</p>
+
+  <table>
+    <thead>
+      <tr><th>Say This</th><th>Claude Does This</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>"Do not implement yet"</td><td>Reviews scope, rates confidence, identifies risks. No code.</td></tr>
+      <tr><td>"Just fix that one issue"</td><td>Zero scope expansion. Fixes exactly what you pointed at.</td></tr>
+      <tr><td>"Continue to ask questions"</td><td>Batches ALL questions before writing any code.</td></tr>
+      <tr><td>"I was just calling out one error"</td><td>Fixes only the specific thing mentioned. Does not rewrite surrounding work.</td></tr>
+      <tr><td>"Interview style to talk through this plan"</td><td>Asks you questions one at a time to collaboratively build a plan.</td></tr>
+      <tr><td>"Make sure you understand"</td><td>Pauses and confirms understanding before proceeding. Prevents guessing.</td></tr>
+    </tbody>
+  </table>
+
+  <p>These phrases go in your global CLAUDE.md so Claude knows them every session. You don't have to explain them each time — Claude reads the definitions from your protocol.</p>
+
+  <h2>Hard Rules</h2>
+  <p>Non-negotiable rules that Claude must follow. These also go in your CLAUDE.md:</p>
+
+  <table>
+    <thead>
+      <tr><th>Rule</th><th>Why It Exists</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Nothing public without explicit approval</strong></td><td>Claude might create public gists, repos, or deployments. Default to private.</td></tr>
+      <tr><td><strong>No personal contact info in repos</strong></td><td>Phone numbers, emails get committed and are nearly impossible to fully remove.</td></tr>
+      <tr><td><strong>No scope expansion without permission</strong></td><td>Fix one thing = fix one thing. Don't refactor the neighborhood.</td></tr>
+      <tr><td><strong>No time estimates</strong></td><td>AI time estimates are fiction. Don't let Claude guess.</td></tr>
+      <tr><td><strong>Ambiguous input = ask, don't act</strong></td><td>One clarifying question costs nothing. Unauthorized changes cost hours.</td></tr>
+      <tr><td><strong>Never "find and fix bugs" broadly</strong></td><td>Claude will invent bugs that don't exist and "fix" them, breaking working code. Always describe specific symptoms.</td></tr>
+      <tr><td><strong>Never perform irreversible actions without verifying</strong></td><td>Don't delete data before confirming the backup exists.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Workflow Rules</h2>
+  <ul>
+    <li><strong>Batch work into small, deployable chunks.</strong> Never build everything in one session.</li>
+    <li><strong>One code path per feature.</strong> No duplicate implementations.</li>
+    <li><strong>Questions before implementing.</strong> Claude should ask questions in rounds of 3-6 before writing code.</li>
+    <li><strong>Clean before documenting.</strong> Audit code before writing docs about it — otherwise docs canonize the bugs.</li>
+    <li><strong>Review all doc edits twice before committing.</strong></li>
+    <li><strong>Before UI-heavy work, gather 2-4 visual references.</strong> Claude designs from references, not imagination.</li>
+    <li><strong>Treat unscoped additions as scope creep.</strong> Claude will try to add adjacent features. Reject or defer them.</li>
+  </ul>
+
+  <h2>Bug Handling Protocol</h2>
+  <p>When something breaks, follow this process:</p>
+  <ol>
+    <li><strong>Describe the symptom specifically:</strong> "When I click the login button, I see a blank page instead of the form"</li>
+    <li><strong>Don't guess the cause:</strong> Let Claude trace the full code path</li>
+    <li><strong>Don't say "find and fix all bugs"</strong> — Claude will invent problems</li>
+    <li><strong>Check for duplicate implementations</strong> — sometimes Claude builds two versions of the same feature</li>
+    <li><strong>After fixing, trace the full lifecycle:</strong> create &rarr; use &rarr; cleanup &rarr; edge case</li>
+  </ol>
+
+  <h2>Edit Discipline</h2>
+  <p>After every edit Claude makes, it reads the file back twice before continuing. This catches mistakes that "obvious" edits introduce. It's a rule in your CLAUDE.md — Claude does it automatically.</p>
+
+  <details class="explainer">
+    <summary>Why is this necessary?</summary>
+    <div class="explainer-content">
+      <p>Claude sometimes makes small mistakes when editing files — a missing bracket, a wrong variable name, an accidental deletion. Reading the file back twice forces Claude to verify what it actually wrote matches what it intended. It's like proofreading an email before sending it. The two reads ARE the forcing function.</p>
+    </div>
+  </details>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>Memorizing all steering phrases — they're in your CLAUDE.md, Claude reads them</li>
+    <li>Being "too strict" with rules — constraints make Claude better, not worse</li>
+    <li>Writing the perfect protocol on day one — add rules as you discover what goes wrong</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>

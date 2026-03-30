@@ -2,7 +2,84 @@
   <h1>Phase 13 — Documentation</h1>
   <p class="phase-subtitle">The documentation stack and self-improving protocol.</p>
 
-  <p>Content coming soon.</p>
+  <p>Your project builds up layers of documentation over time. Not all are needed from day one — start with CLAUDE.md and add layers as the project grows. Each layer serves a different purpose.</p>
+
+  <h2>The Documentation Stack</h2>
+
+  <table>
+    <thead>
+      <tr><th>Layer</th><th>What It Is</th><th>When to Create</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>CLAUDE.md</strong></td><td>Project overview, architecture, key decisions, known issues</td><td>Before first session</td></tr>
+      <tr><td><strong>Scope doc</strong></td><td>What to build, what NOT to build, acceptance criteria</td><td>Before first build</td></tr>
+      <tr><td><strong>Plan docs</strong></td><td>Pre-build architecture for non-trivial work</td><td>Before each feature</td></tr>
+      <tr><td><strong>Context docs (NCD)</strong></td><td>Session snapshots — what's working, broken, next</td><td>Every 2-3 sessions</td></tr>
+      <tr><td><strong>Solution docs</strong></td><td>Post-build: problem, root cause, fix, prevention rules</td><td>After every non-trivial fix</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How the Layers Connect</h2>
+  <ol>
+    <li>You write a <strong>scope doc</strong> in Phase 1 — it defines what to build</li>
+    <li>The scope doc becomes the seed of your <strong>CLAUDE.md</strong> in Phase 8</li>
+    <li>Before each feature, you write a <strong>plan doc</strong> (or Claude writes one during NUTS step 1)</li>
+    <li>Every 2-3 sessions, you create a <strong>context doc</strong> (<code>-ncd</code>) — a snapshot of where things stand</li>
+    <li>After every non-trivial fix, you write a <strong>solution doc</strong> — what broke, why, how you fixed it, and how to prevent it</li>
+  </ol>
+
+  <h2>The Prevention Rules Loop</h2>
+  <p>This is how the protocol gets smarter over time:</p>
+  <ol>
+    <li>You solve a problem</li>
+    <li>You document it in a solution doc, including <strong>Prevention Rules</strong> — rules that prevent the entire class of problem from recurring</li>
+    <li>Those Prevention Rules feed back into your CLAUDE.md</li>
+    <li>Next time Claude starts a session, it reads those rules and avoids the same mistake</li>
+  </ol>
+
+  <p><strong>Example:</strong> You discover that Claude keeps committing <code>.env</code> files to GitHub. You write a solution doc: "Problem: secrets committed to repo. Fix: added .env to .gitignore. Prevention Rule: always check .gitignore includes .env before first commit." That rule goes into your CLAUDE.md. Claude now checks .gitignore automatically.</p>
+
+  <details class="explainer">
+    <summary>What is a solution doc?</summary>
+    <div class="explainer-content">
+      <p>A solution doc records a problem you solved. Format:</p>
+      <ul>
+        <li><strong>Problem:</strong> What went wrong</li>
+        <li><strong>Root Cause:</strong> Why it went wrong</li>
+        <li><strong>Fix Applied:</strong> What you did to fix it</li>
+        <li><strong>Prevention Rules:</strong> Rules that prevent this class of problem from happening again</li>
+      </ul>
+      <p>You don't write these for every tiny fix — just for problems that taught you something worth remembering.</p>
+    </div>
+  </details>
+
+  <h2>Protocol Maintenance</h2>
+  <p>Your CLAUDE.md is a living document. It updates via conversation:</p>
+
+  <table>
+    <thead>
+      <tr><th>Type of Change</th><th>Where to Update</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>New commands, workflow rules, operating rules</td><td>Global <code>~/.claude/CLAUDE.md</code></td></tr>
+      <tr><td>Architecture, deployment, known issues</td><td>Project <code>CLAUDE.md</code></td></tr>
+      <tr><td>Universal prevention rules</td><td>Global CLAUDE.md</td></tr>
+      <tr><td>Project-specific prevention rules</td><td>Project CLAUDE.md</td></tr>
+      <tr><td>Cross-session context, feedback</td><td>Memory files</td></tr>
+    </tbody>
+  </table>
+
+  <p>The protocol gets better the more you use it. Every solved problem generates durable rules. Over time, your CLAUDE.md becomes smarter because it encodes every lesson learned.</p>
+
+  <h2>Scope Docs and Exclusion Lists</h2>
+  <p>Scope docs should always include an <strong>explicit exclusion list</strong> — what is NOT in scope. When Claude tries to add adjacent features (and it will), point at the list. This is your most powerful defense against scope creep.</p>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>Having all 5 layers on day one — start with CLAUDE.md, add the rest as you need them</li>
+    <li>Perfect documentation — good enough is better than nothing</li>
+    <li>Writing solution docs for every tiny fix — only for lessons worth remembering</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>

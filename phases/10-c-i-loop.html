@@ -2,7 +2,73 @@
   <h1>Phase 10 — The -c -i Loop</h1>
   <p class="phase-subtitle">The core critique-and-implement pattern that powers everything.</p>
 
-  <p>Content coming soon.</p>
+  <p>Before learning the full NUTS workflow, learn the one interaction pattern that makes everything else work. This is the single most important thing in this entire guide.</p>
+
+  <h2>The Loop</h2>
+  <ol>
+    <li>Claude does something (writes a plan, builds code, makes a suggestion)</li>
+    <li>You type <code>-c</code> — Claude critiques its own work adversarially, finding everything wrong</li>
+    <li>You type <code>-i</code> — Claude implements all valid fixes from the critique, no questions asked</li>
+    <li>Repeat until clean</li>
+  </ol>
+
+  <p>That's it. <strong><code>-c</code> then <code>-i</code>, over and over, until there's nothing left to fix.</strong></p>
+
+  <h2>Why This Works</h2>
+  <p>Claude is good at building things. Claude is also good at finding problems with things. But it doesn't do both at the same time. When you ask Claude to critique its own work, it switches from "builder" mode to "reviewer" mode — and it's surprisingly honest about what's wrong.</p>
+  <p>The loop forces Claude to check its own work before you ship it. Think of it as a built-in quality check that costs you two keystrokes.</p>
+
+  <h2>When to Use It</h2>
+
+  <table>
+    <thead>
+      <tr><th>Situation</th><th>How to Use the Loop</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Standalone</strong></td><td>"Write me a landing page" &rarr; <code>-c</code> &rarr; <code>-i</code> &rarr; <code>-c</code> &rarr; <code>-i</code> (converges to zero)</td></tr>
+      <tr><td><strong>Fixed rounds</strong></td><td>"Run 3 rounds of <code>-c</code> <code>-i</code>" — refinement without full NUTS</td></tr>
+      <tr><td><strong>Before NUTS</strong></td><td>Rough out an idea with the loop, then formalize into a NUTS plan</td></tr>
+      <tr><td><strong>After NUTS</strong></td><td>Quick polish pass on something that already went through the full flow</td></tr>
+      <tr><td><strong>Instead of NUTS</strong></td><td>For small tasks that don't warrant the full 8-step cycle</td></tr>
+    </tbody>
+  </table>
+
+  <h2>The Convergence Table</h2>
+  <p>After each <code>-c</code> pass, Claude shows a summary of what it found:</p>
+
+  <table>
+    <thead>
+      <tr><th>Pass</th><th>Critical</th><th>High</th><th>Medium</th><th>Low</th><th>Total</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>2</td><td>3</td><td>1</td><td>0</td><td>6</td></tr>
+      <tr><td>2</td><td>0</td><td>1</td><td>2</td><td>1</td><td>4</td></tr>
+      <tr><td>3</td><td>0</td><td>0</td><td>1</td><td>1</td><td>2</td></tr>
+      <tr><td>4</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+    </tbody>
+  </table>
+
+  <p>When the total hits zero (or only low/informational items remain), it's <strong>converged</strong>. Ship it.</p>
+
+  <details class="explainer">
+    <summary>What does "converged" mean?</summary>
+    <div class="explainer-content">
+      <p>Convergence means the critique passes are finding fewer and fewer issues until there's nothing actionable left. Pass 1 might find 6 issues. After you fix those (<code>-i</code>), pass 2 finds 4. After fixing those, pass 3 finds 2. Pass 4 finds 0. That's convergence — the work has been refined to the point where there's nothing left to improve.</p>
+    </div>
+  </details>
+
+  <h2>Try It Now</h2>
+  <p>Open Claude Code and try this:</p>
+  <ol>
+    <li>Ask Claude to do something: <code>Write me a simple landing page for a to-do app</code></li>
+    <li>Type <code>-c</code></li>
+    <li>Read the critique — see what Claude found</li>
+    <li>Type <code>-i</code></li>
+    <li>Type <code>-c</code> again — see if there are fewer issues</li>
+    <li>Repeat until converged</li>
+  </ol>
+
+  <p>You'll see the pattern immediately: each pass finds less, until the work is clean. This is the foundation of everything in the next phase.</p>
 
   <div class="phase-checklist">
     <label>

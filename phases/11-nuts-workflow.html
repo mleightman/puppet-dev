@@ -2,7 +2,97 @@
   <h1>Phase 11 — The NUTS Workflow</h1>
   <p class="phase-subtitle">No Uncritiqued Task Ships — the full 8-step quality system.</p>
 
-  <p>Content coming soon.</p>
+  <p><strong>NUTS = No Uncritiqued Task Ships.</strong></p>
+  <p>Without it, AI writes code fast, looks right, ships, breaks. NUTS catches problems at plan stage where fixing costs a paragraph edit instead of a debugging session.</p>
+
+  <h2>The 8 Steps</h2>
+
+  <table>
+    <thead>
+      <tr><th>Step</th><th>What Happens</th><th>Plain English</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>1. Plan</strong></td><td>Research, identify gaps, write a plan</td><td>Describe before touching code</td></tr>
+      <tr><td><strong>2. Critique (<code>-c</code>)</strong></td><td>Adversarial passes until zero issues</td><td>Find everything wrong with the plan</td></tr>
+      <tr><td><strong>3. Audit (pre-build)</strong></td><td>5-question diagnostic, Q1 = "what worries you?"</td><td>Last cheap exit before code</td></tr>
+      <tr><td><strong>4. Build (<code>-build</code>)</strong></td><td>Implement the critiqued plan</td><td>Now build it</td></tr>
+      <tr><td><strong>5. Review (<code>-c</code>)</strong></td><td>Adversarial passes until zero issues</td><td>Find everything wrong with what was built</td></tr>
+      <tr><td><strong>6. Audit (post-build)</strong></td><td>5-question diagnostic on implementation</td><td>Did the code deliver the plan?</td></tr>
+      <tr><td><strong>7. Compound</strong></td><td>Push, then document the solution</td><td>Write down what you learned</td></tr>
+      <tr><td><strong>8. Summary</strong></td><td>Recap + auto-archive completed TODOs</td><td>The final output</td></tr>
+    </tbody>
+  </table>
+
+  <h2>The Key Rules</h2>
+  <ul>
+    <li><strong>Never skip to build.</strong> Plan &rarr; critique &rarr; audit &rarr; build. Always.</li>
+    <li><strong>Critique until convergence.</strong> Not a fixed number of passes. Keep going until zero actionable findings.</li>
+    <li><strong>Sequential passes:</strong> find issues &rarr; fix them &rarr; next pass. Not: find, find, find, then fix all at once.</li>
+    <li><strong>Audit Q1 is always "what worries you?"</strong> — this is the gut-check. Honest answers only. No cheerleading.</li>
+    <li><strong>Post-build audit is scoped to implementation.</strong> If a finding requires changing the architecture, flag it for the user — don't just change it.</li>
+    <li><strong>Never skip compound.</strong> The knowledge compounds. Each documented solution makes future work faster.</li>
+    <li><strong>Bug fixes follow the same cycle.</strong></li>
+  </ul>
+
+  <h2>When to Scale Down</h2>
+  <p>Full NUTS is for non-trivial work — multiple files, new architecture, judgment calls. For a typo fix or a config change, a quick <code>-c</code> pass is enough. Use your judgment:</p>
+
+  <table>
+    <thead>
+      <tr><th>Task Size</th><th>What to Do</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Typo fix, config change</td><td>Just do it, maybe one <code>-c</code> pass</td></tr>
+      <tr><td>Small feature, bug fix</td><td><code>-c</code> &rarr; <code>-i</code> loop (Phase 10)</td></tr>
+      <tr><td>New feature, refactor, multi-file change</td><td>Full NUTS</td></tr>
+    </tbody>
+  </table>
+
+  <h2>The NUTS Tracker</h2>
+  <p>Claude displays a tracker at every step so you always know where you are:</p>
+
+  <pre><code>NUTS [2/8]: Critique — pass 1 (converging to zero)
+  1. Plan ✅
+  2. Critique ← you are here
+  3. Audit (pre-build)
+  4. Build
+  5. Review
+  6. Audit (post-build)
+  7. Compound
+  8. Summary</code></pre>
+
+  <h2>The 5 Commands</h2>
+
+  <table>
+    <thead>
+      <tr><th>Command</th><th>What It Does</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>-c</code></td><td>Adversarial critique — find everything wrong</td></tr>
+      <tr><td><code>-i</code></td><td>Implement all valid criticisms — no asking, just fix</td></tr>
+      <tr><td><code>-build</code></td><td>Implement the plan — don't stop until done</td></tr>
+      <tr><td><code>-nuts</code></td><td>Start the NUTS flow (walks you through each step, pausing for input)</td></tr>
+      <tr><td><code>-autonuts</code></td><td>Run the full NUTS flow autonomously — no pausing between steps</td></tr>
+    </tbody>
+  </table>
+
+  <p>The full command reference (30+ commands) is in <a href="#phase-19">Phase 19</a>.</p>
+
+  <h2>How It Looks in Practice</h2>
+  <p>Here's a real example of what NUTS feels like:</p>
+  <ol>
+    <li><strong>You:</strong> "I want to add dark mode to my app. <code>-nuts</code>"</li>
+    <li><strong>Plan:</strong> Claude researches your codebase, writes a plan for how to add dark mode</li>
+    <li><strong>Critique:</strong> Claude runs <code>-c</code> on its own plan, finds 4 issues, fixes them, runs again, finds 1, fixes it, runs again, finds 0. Converged.</li>
+    <li><strong>Audit:</strong> 5 questions. Q1: "What worries me: the CSS specificity might clash with existing styles." Addresses it.</li>
+    <li><strong>Build:</strong> Claude implements the dark mode. Tests it.</li>
+    <li><strong>Review:</strong> <code>-c</code> on the built code. Finds a contrast issue. Fixes it. Next pass: clean.</li>
+    <li><strong>Audit:</strong> "Did the code deliver the plan?" Yes, all criteria met.</li>
+    <li><strong>Compound:</strong> Commits, pushes, documents what was done.</li>
+    <li><strong>Summary:</strong> "Added dark mode with CSS custom properties. Toggle persists in localStorage. 3 critique passes, 2 review passes. All converged."</li>
+  </ol>
+
+  <p>The whole thing might take 10-20 minutes. The result: dark mode that actually works, is documented, and was checked from multiple angles before shipping.</p>
 
   <div class="phase-checklist">
     <label>
