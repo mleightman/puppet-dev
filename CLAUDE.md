@@ -29,36 +29,23 @@ Matt is a non-technical vibecoder. Explain technical concepts in plain language.
 ## Structure
 
 ```
-the-puppet-developer-installation/
+puppet-dev/
 ├── CLAUDE.md
-├── README.md
-├── index.html                   # Main site shell + navigation
+├── .nojekyll                    # Disables Jekyll on GitHub Pages
+├── 404.html                     # Redirects to index.html (preserves hash)
+├── index.html                   # Main site shell + SPA navigation
 ├── phases/
-│   ├── 00-mindset.html
-│   ├── 01-project-scope.html
-│   ├── 02-github.html
-│   ├── 03-railway.html
-│   ├── 04-env-vars-databases.html
-│   ├── 05-terminal.html
-│   ├── 06-claude-code-cli.html
-│   ├── 07-settings-plugins.html
-│   ├── 08-claude-md.html
-│   ├── 09-daily-skills.html
-│   ├── 10-c-i-loop.html
-│   ├── 11-nuts-workflow.html
-│   ├── 12-steering-and-rules.html
-│   ├── 13-documentation.html
-│   ├── 14-testing.html
-│   ├── 15-when-things-go-wrong.html
-│   ├── 16-multi-window.html
-│   ├── 17-telegram.html
-│   ├── 18-cloud-tasks.html
+│   ├── 00-mindset.html          # HTML fragments (not full docs)
+│   ├── 01-project-scope.html    # Loaded via fetch, injected into main#content
+│   ├── ...
 │   └── 19-reference.html
 ├── css/
-│   └── main.css
+│   └── main.css                 # Design system, light/dark tokens, responsive
 ├── js/
-│   └── app.js                  # Navigation, OS toggle, progress tracking, clipboard
-└── assets/
+│   └── app.js                   # Navigation, OS toggle, progress, clipboard, dark mode
+├── assets/
+└── docs/
+    └── plans/
 ```
 
 ## Website Features
