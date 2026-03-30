@@ -2,7 +2,111 @@
   <h1>Phase 6 — Claude Code CLI</h1>
   <p class="phase-subtitle">Install Claude Code and build your first real thing.</p>
 
-  <p>Content coming soon.</p>
+  <p>Everything before this was setup. This is where you actually direct Claude to build something. You'll install Claude Code, paste your scope doc from Phase 1, and watch Claude build your app.</p>
+
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>A Claude Pro or Max subscription at <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> (or an Anthropic API key)</li>
+    <li>Node.js installed (Phase 5)</li>
+    <li>A terminal open, navigated to your project folder</li>
+  </ul>
+
+  <h2>Install Claude Code</h2>
+  <ol>
+    <li>Open your terminal</li>
+    <li>Run the install command:
+      <pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+    </li>
+    <li>Navigate to your project folder:
+      <pre><code>cd ~/Desktop/my-first-app</code></pre>
+    </li>
+    <li>Run Claude Code for the first time:
+      <pre><code>claude</code></pre>
+    </li>
+    <li>Claude will prompt you to authenticate — follow the on-screen instructions to connect your Claude account</li>
+    <li>You're in. Claude Code is running and ready for instructions.</li>
+  </ol>
+
+  <h2>What's Different from Web Chat</h2>
+  <p>In Phase 1, you used claude.ai (web chat) to plan. Claude Code is fundamentally different:</p>
+
+  <table>
+    <thead>
+      <tr><th>Feature</th><th>claude.ai (Web Chat)</th><th>Claude Code (Terminal)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Sees your files</td><td>No — only what you paste</td><td>Yes — reads your entire project</td></tr>
+      <tr><td>Writes files</td><td>No — shows code in chat</td><td>Yes — creates and edits actual files</td></tr>
+      <tr><td>Runs commands</td><td>No</td><td>Yes — runs terminal commands, tests, git</td></tr>
+      <tr><td>Best for</td><td>Planning, brainstorming, scope docs</td><td>Building, debugging, shipping</td></tr>
+    </tbody>
+  </table>
+
+  <p>This is the shift from the <strong>briefing room</strong> to the <strong>workshop</strong>. Claude can now see your code, touch your code, and run your code.</p>
+
+  <h2>Your First Real Build</h2>
+  <p>Open the scope doc you saved in Phase 1. Paste it to Claude Code and say:</p>
+  <pre><code>Here's my project scope. Build me the starter version.
+
+[paste your scope doc here]</code></pre>
+
+  <p>Claude will:</p>
+  <ol>
+    <li>Read your scope doc</li>
+    <li>Create a project structure (folders and files)</li>
+    <li>Write the initial code</li>
+    <li>Explain what it built and why</li>
+  </ol>
+
+  <p>Let it run. Don't interrupt on the first build — let Claude finish, then review what it made.</p>
+
+  <h2>Understand What Claude Built</h2>
+  <p>After the first build, ask Claude:</p>
+  <pre><code>Explain the file structure you just created. One sentence per file.</code></pre>
+  <p>Claude will walk you through each file and what it does. You don't need to understand the code inside — just know which file is responsible for what.</p>
+
+  <h2>Make Your First Small Change</h2>
+  <p>Pick something tiny — a text change, a color, a label. Tell Claude:</p>
+  <pre><code>Change the page title from "My App" to "Task Manager"</code></pre>
+  <p>Watch Claude find the file, make the edit, and confirm. This is the core loop: you describe, Claude builds.</p>
+
+  <h2>Commit and Push</h2>
+  <p>Now save your work to GitHub:</p>
+  <pre><code>Commit and push everything we just built</code></pre>
+  <p>Claude will:</p>
+  <ol>
+    <li>Stage all the new files</li>
+    <li>Write a commit message</li>
+    <li>Push to GitHub</li>
+  </ol>
+  <p>If you set up Railway in Phase 3, your app will auto-deploy within a minute. Check your Railway URL — your app is live.</p>
+
+  <h2>Updating Claude Code</h2>
+  <p>Claude Code updates frequently. If something isn't working or you see unexpected behavior, update first:</p>
+  <pre><code>npm update -g @anthropic-ai/claude-code</code></pre>
+
+  <h2>Alternatives to the Terminal CLI</h2>
+
+  <table>
+    <thead>
+      <tr><th>Option</th><th>What It Is</th><th>When to Use</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Terminal CLI</strong></td><td><code>claude</code> in your terminal</td><td>Full power, recommended for this tutorial</td></tr>
+      <tr><td><strong>Desktop App</strong></td><td>Mac/Windows app</td><td>Same as CLI but with a window — good if the terminal feels intimidating</td></tr>
+      <tr><td><strong>VS Code Extension</strong></td><td>Inside your code editor</td><td>If you already use VS Code</td></tr>
+      <tr><td><strong>JetBrains Plugin</strong></td><td>Inside IntelliJ/WebStorm</td><td>If you already use JetBrains</td></tr>
+    </tbody>
+  </table>
+
+  <p>All of these use the same Claude brain. The terminal CLI is what this tutorial teaches because it has the most features and works everywhere.</p>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>Understanding the code Claude wrote (you'll learn to read structure, not syntax)</li>
+    <li>Making mistakes (Claude can undo, Git can revert)</li>
+    <li>The "right" way to organize files (Claude follows conventions)</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>

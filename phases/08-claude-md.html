@@ -2,7 +2,141 @@
   <h1>Phase 8 — CLAUDE.md</h1>
   <p class="phase-subtitle">Teach Claude your project — the file it reads every session.</p>
 
-  <p>Content coming soon.</p>
+  <p>CLAUDE.md is the most important file in your project. Claude reads it at the start of every session. It's how Claude knows what your project is, how you work, and what rules to follow. Without it, every session starts from zero. With it, Claude picks up right where you left off.</p>
+
+  <h2>The Two-Tier System</h2>
+  <p>There are two CLAUDE.md files, and they work together:</p>
+
+  <table>
+    <thead>
+      <tr><th>File</th><th>Location</th><th>What It Contains</th><th>Applies To</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Global CLAUDE.md</strong></td>
+        <td><code>~/.claude/CLAUDE.md</code></td>
+        <td>Your full operating protocol — commands, workflow rules, steering phrases, NUTS flow</td>
+        <td>Every project, every session</td>
+      </tr>
+      <tr>
+        <td><strong>Project CLAUDE.md</strong></td>
+        <td><code>CLAUDE.md</code> in your project root</td>
+        <td>Project-specific info — tech stack, architecture, deployment, known issues</td>
+        <td>Only this project</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>When both exist, the project-level file takes precedence for that project. Think of global as "how I work" and project as "what I'm working on."</p>
+
+  <h2>Start from Your Scope Doc</h2>
+  <p>Remember the scope doc from Phase 1? That's the seed of your project CLAUDE.md. Tell Claude:</p>
+  <pre><code>Read my code and write me a CLAUDE.md for this project. Here's the scope doc I started with:
+
+[paste your scope doc from Phase 1]</code></pre>
+  <p>Claude will expand it into a proper CLAUDE.md with your tech stack, file structure, commands, and project context.</p>
+
+  <h2>What Goes in the Global CLAUDE.md</h2>
+  <p>The global file is your operating protocol — it applies to every project. It contains:</p>
+
+  <table>
+    <thead>
+      <tr><th>Section</th><th>What It Does</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Session greeting</strong></td><td>A message Claude displays at the start of every session to confirm the protocol loaded</td></tr>
+      <tr><td><strong>About the User</strong></td><td>Who you are, your experience level, how you prefer explanations</td></tr>
+      <tr><td><strong>Commands</strong></td><td>Your custom command set (<code>-c</code>, <code>-build</code>, <code>-status</code>, etc.)</td></tr>
+      <tr><td><strong>Steering phrases</strong></td><td>Short phrases that control Claude's behavior ("Do not implement yet")</td></tr>
+      <tr><td><strong>Workflow rules</strong></td><td>How to approach work (batch small, scope first, critique before build)</td></tr>
+      <tr><td><strong>Operating rules</strong></td><td>Hard rules Claude must follow (nothing public without approval, etc.)</td></tr>
+    </tbody>
+  </table>
+
+  <p>You'll build this up over time. Start simple and add rules as you learn what works.</p>
+
+  <h3>The Session Greeting</h3>
+  <p>Add a startup message so you know Claude loaded the protocol:</p>
+  <pre><code>**On first message of every session**, display:
+`Puppet Developer Installed. Built by Puppet Dev Studios.`</code></pre>
+  <p>If you see this greeting, Claude read your instructions. If you don't, something didn't load — restart the session.</p>
+
+  <h3>The "About the User" Section</h3>
+  <p>This shapes every interaction. A senior engineer gets technical explanations. A first-time coder gets plain language. Tell Claude who you are:</p>
+  <pre><code>## About the User
+
+Matt. Beginner coder. Explain technical concepts in plain language.
+Don't over-explain things I already understand from context.</code></pre>
+
+  <h2>What Goes in the Project CLAUDE.md</h2>
+  <p>The project file is specific to one app:</p>
+
+  <table>
+    <thead>
+      <tr><th>Section</th><th>What It Does</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>About the Project</strong></td><td>What the app does (from your scope doc)</td></tr>
+      <tr><td><strong>Tech Stack</strong></td><td>Languages, frameworks, database, hosting</td></tr>
+      <tr><td><strong>Structure</strong></td><td>Key files and folders, what each one does</td></tr>
+      <tr><td><strong>Commands</strong></td><td>How to run, test, and deploy the app</td></tr>
+      <tr><td><strong>Known Issues</strong></td><td>Bugs, workarounds, things to watch out for</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Memory System</h2>
+  <p>Beyond CLAUDE.md, Claude has a memory system for cross-session context — things that would take more than 2 minutes to rediscover.</p>
+
+  <table>
+    <thead>
+      <tr><th>System</th><th>What It Does</th><th>How to Use It</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>MEMORY.md</strong></td>
+        <td>A curated index of memories stored in <code>~/.claude/projects/.../memory/</code></td>
+        <td>"Remember that we decided to use webhooks for notifications"</td>
+      </tr>
+      <tr>
+        <td><strong>claude-mem plugin</strong></td>
+        <td>Auto-captures observations, searchable across sessions</td>
+        <td>"What do you remember about the payment flow?"</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Memory is for things that don't belong in CLAUDE.md but you don't want to repeat every session — feedback you've given, recurring patterns, project phase.</p>
+
+  <h2>Git Workflow</h2>
+  <p>Now that you have CLAUDE.md, here's the actual shipping workflow Claude handles for you:</p>
+  <ol>
+    <li>You make changes on a feature branch</li>
+    <li>Claude creates a PR (pull request) via the <code>gh</code> CLI</li>
+    <li>You review and merge the PR</li>
+    <li>The code auto-deploys to Railway on push to main</li>
+  </ol>
+
+  <details class="explainer">
+    <summary>What is a pull request (PR)?</summary>
+    <div class="explainer-content">
+      <p>A pull request is a proposal to merge changes from one branch into another. It's like saying "I've made these changes on my draft copy — here's what I changed, please review and merge it into the main version." Claude creates PRs for you using the <code>gh</code> CLI (GitHub's command-line tool). You just say "commit and push" or use the <code>-cp</code> command.</p>
+    </div>
+  </details>
+
+  <details class="explainer">
+    <summary>What is the gh CLI?</summary>
+    <div class="explainer-content">
+      <p><code>gh</code> is GitHub's official command-line tool. It lets Claude create pull requests, check CI status, and merge code — all from the terminal. You don't need to learn it. Claude runs it. You just tell Claude what you want ("create a PR", "merge this") and Claude handles the <code>gh</code> commands.</p>
+    </div>
+  </details>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>Writing the perfect CLAUDE.md on day one — it grows and improves over time</li>
+    <li>The global vs. project distinction being confusing — start with just a project CLAUDE.md</li>
+    <li>Memory management — Claude handles the mechanics, you just say "remember this"</li>
+    <li>Git branching strategy — Claude handles branches and PRs</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>

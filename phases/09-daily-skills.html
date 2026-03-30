@@ -2,7 +2,123 @@
   <h1>Phase 9 — Daily Skills</h1>
   <p class="phase-subtitle">Screenshots, slash commands, and session management.</p>
 
-  <p>Content coming soon.</p>
+  <p>These are the practical skills you'll use every session. They're small individually, but together they make the difference between fighting Claude and flowing with it.</p>
+
+  <h2>Screenshots &amp; Images</h2>
+  <p>Claude can read images. This is huge — instead of trying to describe what's wrong, you can just <strong>show it</strong>.</p>
+
+  <h3>How to Share a Screenshot</h3>
+
+  <div data-os="mac">
+    <ol>
+      <li>Take a screenshot: press <strong>Cmd + Shift + 4</strong>, then drag to select the area</li>
+      <li>The screenshot saves to your Desktop by default</li>
+      <li>Tell Claude: <code>See the screenshot on my Desktop</code></li>
+      <li>Claude finds it, reads it, and can diagnose the problem</li>
+    </ol>
+  </div>
+
+  <div data-os="win">
+    <ol>
+      <li>Take a screenshot: press <strong>Win + Shift + S</strong>, then drag to select the area</li>
+      <li>Save the screenshot to your Desktop</li>
+      <li>Tell Claude: <code>See the screenshot on my Desktop</code></li>
+      <li>Claude finds it, reads it, and can diagnose the problem</li>
+    </ol>
+  </div>
+
+  <h3>When to Use Screenshots</h3>
+
+  <table>
+    <thead>
+      <tr><th>Situation</th><th>What to Say</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Something looks wrong</td><td>"This page looks broken — see the screenshot on my Desktop"</td></tr>
+      <tr><td>Design feedback</td><td>"I want it to look more like this" (screenshot of a reference site)</td></tr>
+      <tr><td>Error message</td><td>"I'm getting this error" (screenshot of browser or terminal)</td></tr>
+      <tr><td>Before/after comparison</td><td>"Does this match the design?"</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Built-in Slash Commands</h2>
+  <p>Claude Code has built-in commands (these are separate from your custom <code>-commands</code> in CLAUDE.md):</p>
+
+  <table>
+    <thead>
+      <tr><th>Command</th><th>What It Does</th><th>When to Use</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>/help</code></td>
+        <td>Show Claude Code's built-in help</td>
+        <td>When you need to find a feature</td>
+      </tr>
+      <tr>
+        <td><code>/clear</code></td>
+        <td>Clear the conversation and start fresh</td>
+        <td>When Claude is confused or stuck in a bad mental model</td>
+      </tr>
+      <tr>
+        <td><code>/compact</code></td>
+        <td>Compress the conversation to save context space</td>
+        <td>When the session is getting long but you want to keep going</td>
+      </tr>
+      <tr>
+        <td><code>/model</code></td>
+        <td>Switch between Claude models</td>
+        <td>Rarely needed — the default is usually best</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Session Management</h2>
+  <p>Long sessions degrade. Here's how to keep Claude sharp:</p>
+
+  <h3><code>/compact</code> — Compress the Conversation</h3>
+  <p>When a session gets long, Claude starts losing track of earlier work. <code>/compact</code> compresses the conversation so Claude can keep going without forgetting. Use it when:</p>
+  <ul>
+    <li>Claude starts repeating itself</li>
+    <li>Claude forgets something you discussed earlier</li>
+    <li>The session feels sluggish</li>
+  </ul>
+
+  <h3>Start Fresh</h3>
+  <p>Sometimes it's better to start a new session entirely. If Claude is stuck in a bad mental model — giving wrong answers, repeating the same mistake — a fresh session clears the slate. Your CLAUDE.md reloads automatically, so Claude still knows your project.</p>
+  <p>Good time to start fresh: when you've been at it for more than an hour and things feel off.</p>
+
+  <h3>The <code>!</code> Prefix</h3>
+  <p>Type <code>!</code> followed by a command to run it directly from the Claude Code prompt:</p>
+  <pre><code>! git status
+! npm test
+! ls -la</code></pre>
+  <p>The output lands in the conversation, so Claude can see it too. Useful for quick checks without leaving Claude.</p>
+
+  <h3>Escape Key — Stop Claude</h3>
+  <p>Press <strong>Escape</strong> to interrupt Claude mid-stream. Use this when you see Claude going in the wrong direction — don't wait for it to finish building the wrong thing. It's like saying "stop, hold on." Claude will stop and wait for your next instruction.</p>
+
+  <h2>The Daily Routine</h2>
+  <p>After a few sessions, this becomes automatic:</p>
+
+  <table>
+    <thead>
+      <tr><th>Step</th><th>What You Do</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Open terminal, <code>cd</code> to project</td><td>Get to the right folder</td></tr>
+      <tr><td>2</td><td><code>git pull</code></td><td>Get latest code (in case you worked on another machine)</td></tr>
+      <tr><td>3</td><td><code>claude</code></td><td>Start Claude Code</td></tr>
+      <tr><td>4</td><td>See the greeting (confirms protocol loaded)</td><td>Know Claude read your CLAUDE.md</td></tr>
+      <tr><td>5</td><td>Tell Claude what you're working on</td><td>Start building</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>Memorizing all slash commands — <code>/compact</code> and <code>/clear</code> are the ones you'll use</li>
+    <li>Perfect screenshot technique — any screenshot works, Claude is flexible</li>
+    <li>Session length rules — just start fresh when things feel off</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>

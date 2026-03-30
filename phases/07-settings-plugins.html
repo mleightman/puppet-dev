@@ -1,8 +1,136 @@
 <div class="phase" data-phase="07">
-  <h1>Phase 7 — Settings & Plugins</h1>
+  <h1>Phase 7 — Settings &amp; Plugins</h1>
   <p class="phase-subtitle">Configure permissions, plugins, and understand costs.</p>
 
-  <p>Content coming soon.</p>
+  <p>Claude Code has a settings file that controls its behavior — what it's allowed to do, which plugins it has, and how it interacts with you. This phase sets it up properly.</p>
+
+  <h2>Permissions: Ask vs. Bypass</h2>
+  <p>By default, Claude asks permission before every action — editing files, running commands, etc. This gets tedious fast. Here's the tradeoff:</p>
+
+  <table>
+    <thead>
+      <tr><th>Mode</th><th>What Happens</th><th>When to Use</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Ask every time</strong></td>
+        <td>Claude asks before every file edit, every bash command, every action</td>
+        <td>Your first day, while learning what Claude does</td>
+      </tr>
+      <tr>
+        <td><strong>Auto-allow (bypass)</strong></td>
+        <td>Claude runs without asking permission</td>
+        <td>Daily use once you trust the workflow</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Recommendation: turn on bypass mode.</strong> Here's why:</p>
+  <ul>
+    <li>Your CLAUDE.md steering phrases and operating rules are what keep Claude safe — not permission prompts</li>
+    <li>Clicking "allow" on every file read and edit slows you down dramatically</li>
+    <li>If you use the Telegram bot later (Phase 17), bypass is <strong>required</strong> — you can't approve permissions from your phone</li>
+    <li>You can switch back to ask-every-time instantly — it's one setting change</li>
+    <li>Claude shows every tool call, so you can always review what it did after the fact</li>
+  </ul>
+
+  <h3>How to Enable Bypass Mode</h3>
+  <p>Tell Claude Code:</p>
+  <pre><code>Set my permissions to auto-allow so you don't ask before every action</code></pre>
+  <p>Or manually: open <code>~/.claude/settings.json</code> and set permissions to allow all tools.</p>
+
+  <h2>Plugins (MCP)</h2>
+
+  <details class="explainer">
+    <summary>What are plugins / MCP?</summary>
+    <div class="explainer-content">
+      <p>MCP (Model Context Protocol) is a system that gives Claude new abilities beyond reading and writing code. Each plugin adds a capability — persistent memory, documentation lookup, browser automation, Telegram messaging. Think of plugins as superpowers you bolt onto Claude.</p>
+    </div>
+  </details>
+
+  <p>Plugins are enabled in your <code>~/.claude/settings.json</code> file. You can ask Claude to help you set them up:</p>
+  <pre><code>Help me enable the recommended plugins in my settings</code></pre>
+
+  <h3>Recommended Plugins</h3>
+
+  <table>
+    <thead>
+      <tr><th>Plugin</th><th>What It Does</th><th>Why You Want It</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>claude-mem</strong></td>
+        <td>Persistent memory across sessions</td>
+        <td>Claude remembers what you worked on last time. Searchable history.</td>
+      </tr>
+      <tr>
+        <td><strong>compound-engineering</strong></td>
+        <td>Up-to-date library docs, specialized agents, research tools</td>
+        <td>Claude can look up current documentation instead of guessing from training data.</td>
+      </tr>
+      <tr>
+        <td><strong>playwright</strong></td>
+        <td>Browser automation</td>
+        <td>Claude can open your app, take screenshots, fill forms, and test UI.</td>
+      </tr>
+      <tr>
+        <td><strong>telegram</strong></td>
+        <td>Telegram messaging</td>
+        <td>Control Claude from your phone (Phase 17).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>You don't need all of these right now. Start with <strong>claude-mem</strong> (memory) and add others as you need them.</p>
+
+  <h2>Cost &amp; Billing</h2>
+  <p>Claude Code costs real money. Understanding the cost model helps you use it efficiently.</p>
+
+  <table>
+    <thead>
+      <tr><th>Plan</th><th>Cost</th><th>What You Get</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Claude Pro</strong></td>
+        <td>$20/month</td>
+        <td>Good for getting started. Includes Claude Code access with usage limits.</td>
+      </tr>
+      <tr>
+        <td><strong>Claude Max</strong></td>
+        <td>$100/month (or $200 for higher limits)</td>
+        <td>For heavy daily use. Higher usage limits, priority access.</td>
+      </tr>
+      <tr>
+        <td><strong>API Key</strong></td>
+        <td>Pay per use</td>
+        <td>No monthly fee, but you pay for every token used. Good for light or variable use.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>What Costs Tokens</h3>
+  <p>Everything Claude does costs tokens (the unit of AI usage):</p>
+  <ul>
+    <li>Every message you send</li>
+    <li>Every file Claude reads</li>
+    <li>Every tool call (edit, bash command, search)</li>
+    <li>Every response Claude generates</li>
+  </ul>
+
+  <p><strong>Practical tips to manage costs:</strong></p>
+  <ul>
+    <li>When a session gets long and Claude starts forgetting or repeating itself, start a fresh session — long contexts burn tokens fast</li>
+    <li>Use <code>/compact</code> to compress the conversation before starting fresh</li>
+    <li>Don't ask Claude to read your entire codebase unless needed — be specific about which files to look at</li>
+  </ul>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>Optimizing settings on day one — the defaults work fine</li>
+    <li>Understanding MCP protocol internals</li>
+    <li>Setting up every plugin immediately — add them as you need them</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>
