@@ -2,6 +2,16 @@
   <h1>Phase 6 — Claude Code CLI</h1>
   <p class="phase-subtitle">Install Claude Code and build your first real thing.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Install Claude Code and connect your account</li>
+      <li>Understand how Claude Code differs from web chat</li>
+      <li>Build your first real thing by pasting your scope doc</li>
+      <li>Commit and push your first code to GitHub</li>
+    </ul>
+  </div>
+
   <p>Everything before this was setup. This is where you actually direct Claude to build something. You'll install Claude Code, paste your scope doc from Phase 1, and watch Claude build your app.</p>
 
   <h2>Prerequisites</h2>
@@ -16,9 +26,16 @@
     <li>Open your terminal</li>
     <li>Run the install command:
       <pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+      <details class="explainer">
+        <summary>What is npm?</summary>
+        <div class="explainer-content">
+          <p>npm is Node.js's package manager — it installs tools and libraries. The command <code>npm install -g</code> means "install this tool globally so it works everywhere on your computer." You run it once to install Claude Code, then forget about npm.</p>
+        </div>
+      </details>
     </li>
     <li>Navigate to your project folder:
       <pre><code>cd ~/Desktop/my-first-app</code></pre>
+      <p>This path works on both Mac and Windows (WSL uses the same path format).</p>
     </li>
     <li>Run Claude Code for the first time:
       <pre><code>claude</code></pre>
@@ -107,6 +124,8 @@
     <li>Making mistakes (Claude can undo, Git can revert)</li>
     <li>The "right" way to organize files (Claude follows conventions)</li>
   </ul>
+
+  <p>Next up: <a href="#phase-07">Phase 7</a> walks you through settings, plugins, and costs — so you can configure Claude Code to work the way you want.</p>
 
   <div class="phase-checklist">
     <label>

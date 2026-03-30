@@ -2,6 +2,16 @@
   <h1>Phase 9 — Daily Skills</h1>
   <p class="phase-subtitle">Screenshots, slash commands, and session management.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Share screenshots with Claude to diagnose visual bugs</li>
+      <li>Use slash commands (/compact, /clear) to manage sessions</li>
+      <li>Know the daily routine — the 5 steps you do every session</li>
+      <li>Use the ! prefix to run terminal commands from inside Claude Code</li>
+    </ul>
+  </div>
+
   <p>These are the practical skills you'll use every session. They're small individually, but together they make the difference between fighting Claude and flowing with it.</p>
 
   <h2>Screenshots &amp; Images</h2>
@@ -57,7 +67,7 @@
       <tr>
         <td><code>/clear</code></td>
         <td>Clear the conversation and start fresh</td>
-        <td>When Claude is confused or stuck in a bad mental model</td>
+        <td>When Claude is confused or stuck in a bad mental model (more recovery tips in <a href="#phase-15">Phase 15</a>)</td>
       </tr>
       <tr>
         <td><code>/compact</code></td>
@@ -82,6 +92,13 @@
     <li>Claude forgets something you discussed earlier</li>
     <li>The session feels sluggish</li>
   </ul>
+
+  <details class="explainer">
+    <summary>What is a context window?</summary>
+    <div class="explainer-content">
+      <p>The context window is how much Claude can "see" at once — all the messages, files, and tool calls in your current session. Think of it like a desk: the bigger the pile of papers, the harder it is to find what you need. When the pile gets too big, Claude starts forgetting earlier work. <code>/compact</code> cleans up the desk.</p>
+    </div>
+  </details>
 
   <h3>Start Fresh</h3>
   <p>Sometimes it's better to start a new session entirely. If Claude is stuck in a bad mental model — giving wrong answers, repeating the same mistake — a fresh session clears the slate. Your CLAUDE.md reloads automatically, so Claude still knows your project.</p>
@@ -108,7 +125,7 @@
       <tr><td>1</td><td>Open terminal, <code>cd</code> to project</td><td>Get to the right folder</td></tr>
       <tr><td>2</td><td><code>git pull</code></td><td>Get latest code (in case you worked on another machine)</td></tr>
       <tr><td>3</td><td><code>claude</code></td><td>Start Claude Code</td></tr>
-      <tr><td>4</td><td>See the greeting (confirms protocol loaded)</td><td>Know Claude read your CLAUDE.md</td></tr>
+      <tr><td>4</td><td>See the greeting (confirms protocol loaded — set this up in <a href="#phase-08">Phase 8</a>)</td><td>Know Claude read your CLAUDE.md</td></tr>
       <tr><td>5</td><td>Tell Claude what you're working on</td><td>Start building</td></tr>
     </tbody>
   </table>

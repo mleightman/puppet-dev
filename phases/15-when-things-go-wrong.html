@@ -2,6 +2,16 @@
   <h1>Phase 15 — When Things Go Wrong</h1>
   <p class="phase-subtitle">Every beginner hits a wall. Here's how you recover.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Diagnose deploy failures using Railway error logs</li>
+      <li>Report bugs to Claude with specific symptoms (not vague requests)</li>
+      <li>Recover when you're lost or overwhelmed</li>
+      <li>Know the golden rule — describe what you see, not what you think the problem is</li>
+    </ul>
+  </div>
+
   <p>Things will break. That's normal. The difference between getting stuck and recovering quickly is knowing the right thing to say to Claude. This phase covers the most common failure modes and exactly how to handle each one.</p>
 
   <h2>Deploy Fails</h2>
@@ -9,7 +19,7 @@
 
   <p><strong>What to do:</strong></p>
   <ol>
-    <li>Go to the Railway dashboard and click on your deployment</li>
+    <li>Go to the <a href="#phase-03">Railway</a> dashboard and click on your deployment</li>
     <li>Click <strong>Deploy Logs</strong> — this shows the error message</li>
     <li>Copy the error message</li>
     <li>Tell Claude: <code>This deploy failed. Here's the error: [paste error]</code></li>
@@ -34,7 +44,7 @@
 
   <p><strong>What NOT to do:</strong></p>
   <ul>
-    <li>Don't say "find and fix all the bugs" — Claude will invent problems that don't exist and break working code</li>
+    <li>Don't say "find and fix all the bugs" — Claude will invent problems that don't exist and break working code (see the <a href="#phase-12">bug handling protocol</a> in Phase 12)</li>
     <li>Don't panic and rewrite everything</li>
   </ul>
 
@@ -56,6 +66,13 @@
       <tr><td>"Something's wrong with the CSS"</td><td>"The sidebar overlaps the content on mobile — see the screenshot"</td></tr>
     </tbody>
   </table>
+
+  <details class="explainer">
+    <summary>Why can't I say "find and fix all bugs"?</summary>
+    <div class="explainer-content">
+      <p>When you tell Claude to "find and fix bugs" without describing specific symptoms, Claude invents problems that don't exist. It sees patterns that look like they could be wrong and "fixes" them — breaking working code in the process. Always describe what you see: "When I click this button, nothing happens" is actionable. "Find bugs" is not.</p>
+    </div>
+  </details>
 
   <h2>Something That Worked Stops Working</h2>
   <ol>

@@ -2,9 +2,27 @@
   <h1>Phase 14 — Testing</h1>
   <p class="phase-subtitle">Let Claude write tests — you just need to know they exist.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Ask Claude to write and run tests for your features</li>
+      <li>Understand what "tests pass" means and when to ship</li>
+      <li>Know where testing fits in the <a href="#phase-11">NUTS workflow</a></li>
+      <li>Request specific tests (not "test everything")</li>
+    </ul>
+  </div>
+
   <p>You don't need to understand how to write tests. You just need to know they exist, that Claude writes them for you, and when to ask for them.</p>
 
   <h2>What Tests Are</h2>
+
+  <details class="explainer">
+    <summary>What is a test?</summary>
+    <div class="explainer-content">
+      <p>A test is a small program that checks if your main program works correctly. Instead of you manually clicking every button to verify things work, a test does it automatically in seconds. Claude writes these for you — you just need to ask and then check if they pass (green) or fail (red).</p>
+    </div>
+  </details>
+
   <p>Tests are code that checks if your other code works correctly. Think of it as an automatic checklist — instead of you manually clicking every button to verify things work, tests do it for you in seconds.</p>
 
   <h2>How to Use Tests with Claude</h2>
@@ -42,10 +60,10 @@
     </tbody>
   </table>
 
-  <p>You can also just tell Claude <code>run the tests</code> and it will execute them, read the results, and tell you what passed or failed.</p>
+  <p>You can also just tell Claude <code>run the tests</code> and it will execute them, read the results, and tell you what passed or failed. (If you need a refresher on running commands in the terminal, see <a href="#phase-06">Phase 6 — Claude Code CLI</a>.)</p>
 
   <h2>The NUTS Connection</h2>
-  <p>Tests fit into the NUTS workflow at two points:</p>
+  <p>Tests fit into the <a href="#phase-11">NUTS workflow</a> at two points:</p>
   <ul>
     <li><strong>Build step (step 4):</strong> Claude tests each component as it builds</li>
     <li><strong>Review step (step 5):</strong> Tests help verify nothing is broken</li>

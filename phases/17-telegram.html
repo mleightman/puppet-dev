@@ -2,6 +2,16 @@
   <h1>Phase 17 — Telegram</h1>
   <p class="phase-subtitle">Control Claude Code from your phone.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Create a Telegram bot and connect it to Claude Code</li>
+      <li>Send tasks to Claude from your phone while away from the computer</li>
+      <li>Keep your computer awake so Claude can work remotely</li>
+      <li>Understand the notification rules — new messages, not edits</li>
+    </ul>
+  </div>
+
   <p>Send tasks to Claude from Telegram while you're away from the computer. Claude does the work, sends you updates, and you review the results from your phone.</p>
 
   <h2>What You Need</h2>
@@ -11,6 +21,13 @@
     <li>The <code>telegram</code> MCP plugin configured in Claude Code (Phase 7)</li>
     <li><strong>Bypass permissions must be ON</strong> (Phase 7) — you can't approve permission prompts from your phone</li>
   </ul>
+
+  <details class="explainer">
+    <summary>What is a Telegram bot?</summary>
+    <div class="explainer-content">
+      <p>A Telegram bot is an automated account on Telegram that can receive and send messages. You create one through Telegram's BotFather, get a token (a secret key), and give that token to Claude Code. Then when you send a message to your bot, Claude Code receives it and does the work.</p>
+    </div>
+  </details>
 
   <h2>Setup</h2>
   <ol>
@@ -61,7 +78,7 @@
     <li><code>Plan the next feature on the todo list</code></li>
     <li><code>Run -audit10 and send me the findings</code></li>
     <li><code>Commit and push the current changes</code></li>
-    <li>Morning briefings sent to your phone automatically</li>
+    <li>Morning briefings sent to your phone automatically (see <a href="#phase-18">Phase 18: Cloud Tasks</a>)</li>
   </ul>
 
   <h2>Don't Worry About</h2>

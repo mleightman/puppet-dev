@@ -2,6 +2,16 @@
   <h1>Phase 12 — Steering &amp; Rules</h1>
   <p class="phase-subtitle">Control Claude precisely with phrases and hard rules.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Use steering phrases to control Claude's behavior precisely</li>
+      <li>Set up hard rules that prevent common mistakes</li>
+      <li>Know the bug handling protocol — describe symptoms, not diagnoses</li>
+      <li>Understand edit discipline and why it prevents errors</li>
+    </ul>
+  </div>
+
   <p>Claude wants to be helpful. Sometimes too helpful — it'll add features you didn't ask for, refactor code that was fine, or build the wrong thing because it guessed instead of asked. This phase teaches you how to keep Claude on track.</p>
 
   <h2>Steering Phrases</h2>
@@ -21,7 +31,7 @@
     </tbody>
   </table>
 
-  <p>These phrases go in your global CLAUDE.md so Claude knows them every session. You don't have to explain them each time — Claude reads the definitions from your protocol.</p>
+  <p>These phrases go in your global <a href="#phase-08">CLAUDE.md</a> so Claude knows them every session. You don't have to explain them each time — Claude reads the definitions from your protocol.</p>
 
   <h2>Hard Rules</h2>
   <p>Non-negotiable rules that Claude must follow. These also go in your CLAUDE.md:</p>
@@ -53,7 +63,7 @@
   </ul>
 
   <h2>Bug Handling Protocol</h2>
-  <p>When something breaks, follow this process:</p>
+  <p>When something breaks, follow this process (see also <a href="#phase-15">Phase 15 — When Things Go Wrong</a>):</p>
   <ol>
     <li><strong>Describe the symptom specifically:</strong> "When I click the login button, I see a blank page instead of the form"</li>
     <li><strong>Don't guess the cause:</strong> Let Claude trace the full code path</li>

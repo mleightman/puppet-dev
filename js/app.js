@@ -7,6 +7,29 @@
   'use strict';
 
   // ---- Phase Lookup Table ----
+  var PHASE_NAMES = {
+    '00': 'Mindset',
+    '01': 'Project Scope',
+    '02': 'GitHub',
+    '03': 'Railway',
+    '04': 'Env Vars & Databases',
+    '05': 'Terminal Setup',
+    '06': 'Claude Code CLI',
+    '07': 'Settings & Plugins',
+    '08': 'CLAUDE.md',
+    '09': 'Daily Skills',
+    '10': 'The -c -i Loop',
+    '11': 'NUTS Workflow',
+    '12': 'Steering & Rules',
+    '13': 'Documentation',
+    '14': 'Testing',
+    '15': 'When Things Go Wrong',
+    '16': 'Multi-Window',
+    '17': 'Telegram',
+    '18': 'Cloud Tasks',
+    '19': 'Reference'
+  };
+
   var PHASES = {
     '00': '00-mindset.html',
     '01': '01-project-scope.html',
@@ -164,8 +187,10 @@
     navItems.forEach(function (item) {
       if (item.getAttribute('data-phase') === phaseId) {
         item.classList.add('active');
+        item.setAttribute('aria-current', 'page');
       } else {
         item.classList.remove('active');
+        item.removeAttribute('aria-current');
       }
     });
   }
@@ -195,6 +220,8 @@
     initClipboard();
     initOsContent();
     initChecklist();
+    initTableWrap();
+    initPrevNextNav();
     // Syntax highlighting for code blocks (Prism.js loaded via CDN)
     if (typeof Prism !== 'undefined') {
       Prism.highlightAllUnder(content);
@@ -456,6 +483,85 @@
       closeMobileNav();
       hamburger.focus();
     }
+  });
+
+  // ---- Prev/Next Navigation ----
+
+  var phaseKeys = Object.keys(PHASES);
+
+  function initPrevNextNav() {
+    if (!currentPhaseId) return;
+
+    var idx = phaseKeys.indexOf(currentPhaseId);
+    if (idx === -1) return;
+
+    var nav = document.createElement('div');
+    nav.className = 'phase-nav';
+
+    if (idx > 0) {
+      var prevKey = phaseKeys[idx - 1];
+      var prevLink = document.createElement('a');
+      prevLink.href = '#phase-' + prevKey;
+      prevLink.innerHTML = '&larr; Phase ' + parseInt(prevKey, 10) + ': ' + PHASE_NAMES[prevKey];
+      nav.appendChild(prevLink);
+    } else {
+      var spacer = document.createElement('span');
+      spacer.className = 'nav-spacer';
+      nav.appendChild(spacer);
+    }
+
+    if (idx < phaseKeys.length - 1) {
+      var nextKey = phaseKeys[idx + 1];
+      var nextLink = document.createElement('a');
+      nextLink.href = '#phase-' + nextKey;
+      nextLink.innerHTML = 'Phase ' + parseInt(nextKey, 10) + ': ' + PHASE_NAMES[nextKey] + ' &rarr;';
+      nextLink.style.marginLeft = 'auto';
+      nav.appendChild(nextLink);
+    }
+
+    // Insert before .phase-checklist, or append to .phase
+    var phase = content.querySelector('.phase');
+    var checklist = content.querySelector('.phase-checklist');
+    if (checklist) {
+      checklist.parentNode.insertBefore(nav, checklist);
+    } else if (phase) {
+      phase.appendChild(nav);
+    }
+  }
+
+  // ---- Table Overflow Wrapper ----
+
+  function initTableWrap() {
+    var tables = content.querySelectorAll('.phase table');
+    tables.forEach(function (table) {
+      // Skip if already wrapped
+      if (table.parentElement && table.parentElement.classList.contains('table-scroll')) return;
+
+      var wrapper = document.createElement('div');
+      wrapper.className = 'table-scroll';
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    });
+  }
+
+  // ---- Print Support ----
+
+  var printOpenedDetails = [];
+
+  window.addEventListener('beforeprint', function () {
+    printOpenedDetails = [];
+    var closedDetails = document.querySelectorAll('details:not([open])');
+    closedDetails.forEach(function (d) {
+      d.setAttribute('open', '');
+      printOpenedDetails.push(d);
+    });
+  });
+
+  window.addEventListener('afterprint', function () {
+    printOpenedDetails.forEach(function (d) {
+      d.removeAttribute('open');
+    });
+    printOpenedDetails = [];
   });
 
   // ---- Init ----

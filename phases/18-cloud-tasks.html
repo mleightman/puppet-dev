@@ -2,10 +2,27 @@
   <h1>Phase 18 — Cloud Tasks</h1>
   <p class="phase-subtitle">Claude works overnight while you sleep.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Schedule Claude to work overnight while you sleep</li>
+      <li>Use the <code>-wrap</code> and <code>-gm</code> commands for end-of-night and morning handoffs</li>
+      <li>Understand NUTS depth tags — how deep the overnight agent goes</li>
+      <li>Check what Claude accomplished with <code>-cc</code> (cloud check)</li>
+    </ul>
+  </div>
+
   <p>Scheduled cloud agents let you give Claude work to do while you're away. You go to bed, Claude plans your next feature. You wake up, the plan is ready to review.</p>
 
   <h2>The Concept</h2>
   <p>Instead of running Claude Code on your computer, you schedule a task that runs in the cloud on a timer. When you wake up, the work is done — sitting on a branch, ready for you to review.</p>
+
+  <details class="explainer">
+    <summary>What is a cloud agent?</summary>
+    <div class="explainer-content">
+      <p>A cloud agent is Claude running on Anthropic's servers instead of your computer. You schedule a task with a time, and when that time comes, the cloud agent wakes up, does the work, and saves the results to a branch. Your computer doesn't need to be on.</p>
+    </div>
+  </details>
 
   <h2>The End-of-Night Handoff</h2>
   <p>Before you stop for the night, run:</p>
@@ -20,7 +37,7 @@
   </ol>
 
   <h2>NUTS Depth Tags</h2>
-  <p>Tags control how deep the overnight agent goes on each task:</p>
+  <p>Tags control how deep the overnight agent goes on each task (the full <a href="#phase-11">NUTS flow</a> is taught in Phase 11):</p>
 
   <table>
     <thead>
@@ -80,7 +97,7 @@
 
   <h2>Don't Worry About</h2>
   <ul>
-    <li>Cloud task infrastructure — it runs on Anthropic's servers</li>
+    <li>Cloud task infrastructure — it runs on Anthropic's servers (or use <a href="#phase-17">Telegram</a> for real-time remote access)</li>
     <li>Build-depth overnight tasks — plan + critique is the sweet spot</li>
     <li>Setting this up on day one — it's a workflow optimization for later</li>
   </ul>

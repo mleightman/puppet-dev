@@ -2,6 +2,15 @@
   <h1>Phase 10 — The -c -i Loop</h1>
   <p class="phase-subtitle">The core critique-and-implement pattern that powers everything.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Use the <code>-c</code> (critique) and <code>-i</code> (implement) commands to refine any piece of work</li>
+      <li>Understand convergence — when critique finds nothing left to fix</li>
+      <li>Know when to use the loop standalone vs inside the full <a href="#phase-11">NUTS workflow</a></li>
+    </ul>
+  </div>
+
   <p>Before learning the full NUTS workflow, learn the one interaction pattern that makes everything else work. This is the single most important thing in this entire guide.</p>
 
   <h2>The Loop</h2>
@@ -57,6 +66,13 @@
     </div>
   </details>
 
+  <details class="explainer">
+    <summary>Why does Claude critique its own work?</summary>
+    <div class="explainer-content">
+      <p>When you ask Claude to build something, it's in "builder" mode — focused on creating. When you then ask it to critique, it switches to "reviewer" mode — focused on finding problems. These are different mindsets. The loop forces Claude to use both, which catches mistakes that the builder mode missed.</p>
+    </div>
+  </details>
+
   <h2>Try It Now</h2>
   <p>Open Claude Code and try this:</p>
   <ol>
@@ -68,7 +84,7 @@
     <li>Repeat until converged</li>
   </ol>
 
-  <p>You'll see the pattern immediately: each pass finds less, until the work is clean. This is the foundation of everything in the next phase.</p>
+  <p>You'll see the pattern immediately: each pass finds less, until the work is clean. This is the foundation of everything in <a href="#phase-11">Phase 11 — The NUTS Workflow</a>. For the full set of commands beyond <code>-c</code> and <code>-i</code>, see <a href="#phase-12">Phase 12 — Steering &amp; Rules</a>.</p>
 
   <div class="phase-checklist">
     <label>

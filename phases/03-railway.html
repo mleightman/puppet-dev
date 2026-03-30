@@ -2,6 +2,15 @@
   <h1>Phase 3 — Railway</h1>
   <p class="phase-subtitle">Get your app live on the internet.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Deploy your app to a live URL anyone can visit</li>
+      <li>Understand the auto-deploy loop — push code, Railway rebuilds</li>
+      <li>Know when to use Railway vs GitHub Pages for simpler sites</li>
+    </ul>
+  </div>
+
   <p>Right now your code lives on GitHub, but nobody can use it yet. Railway takes your code and runs it on a server so anyone with the link can see your app.</p>
 
   <details class="explainer">
@@ -17,7 +26,7 @@
   <ol>
     <li>Go to <a href="https://railway.app" target="_blank" rel="noopener">railway.app</a></li>
     <li>Click <strong>Login</strong></li>
-    <li>Choose <strong>Login with GitHub</strong> (use the account you created in Phase 2)</li>
+    <li>Choose <strong>Login with GitHub</strong> (use the account you created in <a href="#phase-02">Phase 2</a>)</li>
     <li>Authorize Railway to access your GitHub repos</li>
     <li>You now have a Railway account connected to GitHub</li>
   </ol>
@@ -56,7 +65,7 @@
     </tbody>
   </table>
 
-  <p>Your site does <strong>not</strong> go down during a redeploy. Railway keeps the old version running until the new one is ready, then switches over instantly.</p>
+  <p>Your site does <strong>not</strong> go down during a redeploy. Railway keeps the old version running until the new one is ready, then switches over instantly. If your app needs secrets (like API keys) or a database, you'll set those up in Railway's dashboard in <a href="#phase-04">Phase 4</a>.</p>
 
   <details class="explainer">
     <summary>What is a deployment?</summary>

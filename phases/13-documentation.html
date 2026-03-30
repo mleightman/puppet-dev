@@ -2,6 +2,16 @@
   <h1>Phase 13 — Documentation</h1>
   <p class="phase-subtitle">The documentation stack and self-improving protocol.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Know the 5 documentation layers and when to create each one</li>
+      <li>Understand the prevention rules loop — how solved problems make the protocol smarter</li>
+      <li>Write scope docs with explicit exclusion lists</li>
+      <li>Maintain your protocol as a living document</li>
+    </ul>
+  </div>
+
   <p>Your project builds up layers of documentation over time. Not all are needed from day one — start with CLAUDE.md and add layers as the project grows. Each layer serves a different purpose.</p>
 
   <h2>The Documentation Stack</h2>
@@ -21,9 +31,9 @@
 
   <h2>How the Layers Connect</h2>
   <ol>
-    <li>You write a <strong>scope doc</strong> in Phase 1 — it defines what to build</li>
-    <li>The scope doc becomes the seed of your <strong>CLAUDE.md</strong> in Phase 8</li>
-    <li>Before each feature, you write a <strong>plan doc</strong> (or Claude writes one during NUTS step 1)</li>
+    <li>You write a <strong>scope doc</strong> in <a href="#phase-01">Phase 1</a> — it defines what to build</li>
+    <li>The scope doc becomes the seed of your <strong><a href="#phase-08">CLAUDE.md</a></strong> in Phase 8</li>
+    <li>Before each feature, you write a <strong>plan doc</strong> (or Claude writes one during <a href="#phase-11">NUTS</a> step 1)</li>
     <li>Every 2-3 sessions, you create a <strong>context doc</strong> (<code>-ncd</code>) — a snapshot of where things stand</li>
     <li>After every non-trivial fix, you write a <strong>solution doc</strong> — what broke, why, how you fixed it, and how to prevent it</li>
   </ol>

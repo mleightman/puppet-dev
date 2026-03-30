@@ -2,6 +2,15 @@
   <h1>Phase 16 — Multi-Window</h1>
   <p class="phase-subtitle">Run multiple Claude sessions — many planners, one builder.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Run multiple Claude sessions at once safely</li>
+      <li>Know the rule — many planners, one builder</li>
+      <li>Understand when files conflict and how to avoid it</li>
+    </ul>
+  </div>
+
   <p>You can run multiple Claude Code sessions at the same time. But there's one rule that keeps it from blowing up.</p>
 
   <h2>The Rule: Many Planners, One Builder</h2>
@@ -18,10 +27,17 @@
 
   <p><strong>Why:</strong> Claude Code reads and writes your actual files. If two windows build simultaneously, they'll edit the same files, create merge conflicts, and cascade into a mess. Planning is read-only, so it's always safe to parallelize.</p>
 
+  <details class="explainer">
+    <summary>What is a merge conflict?</summary>
+    <div class="explainer-content">
+      <p>A merge conflict happens when two sessions edit the same file at the same time. Git doesn't know which version to keep, so it marks the file as "conflicted" and asks you to resolve it manually. This is why only one session should build at a time — planning sessions don't edit files, so they're always safe to run in parallel.</p>
+    </div>
+  </details>
+
   <h2>How to Set It Up</h2>
   <ol>
     <li>Open multiple terminal tabs or windows</li>
-    <li>In each one, navigate to your project folder and run <code>claude</code></li>
+    <li>In each one, navigate to your project folder and run <a href="#phase-06"><code>claude</code></a></li>
     <li>Mentally label each: "this one is planning," "this one is building"</li>
     <li>When the builder finishes and pushes, another window can start building</li>
   </ol>
@@ -34,7 +50,7 @@
     </thead>
     <tbody>
       <tr><td><strong>Build + plan ahead</strong></td><td>Building current task</td><td>Planning next task (<code>-present</code>)</td><td>—</td></tr>
-      <tr><td><strong>Autonuts + critique</strong></td><td>Running <code>-autonuts</code></td><td><code>-c</code> on a different plan doc</td><td><code>-status</code> check</td></tr>
+      <tr><td><strong>Autonuts + critique</strong></td><td>Running <a href="#phase-11"><code>-autonuts</code></a></td><td><code>-c</code> on a different plan doc</td><td><code>-status</code> check</td></tr>
       <tr><td><strong>Never do this</strong></td><td>Building feature A</td><td>Building feature B</td><td>Both break</td></tr>
     </tbody>
   </table>

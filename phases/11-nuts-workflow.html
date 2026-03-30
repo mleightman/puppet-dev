@@ -2,8 +2,32 @@
   <h1>Phase 11 — The NUTS Workflow</h1>
   <p class="phase-subtitle">No Uncritiqued Task Ships — the full 8-step quality system.</p>
 
+  <div class="learning-objectives">
+    <p>What you'll learn</p>
+    <ul>
+      <li>Understand the 8-step NUTS workflow and why each step exists</li>
+      <li>Know when to use full NUTS vs a quick <a href="#phase-10">-c -i loop</a></li>
+      <li>Read and track the NUTS progress display so you always know where you are</li>
+      <li>Run <code>-nuts</code> (guided) and <code>-autonuts</code> (autonomous) commands</li>
+    </ul>
+  </div>
+
   <p><strong>NUTS = No Uncritiqued Task Ships.</strong></p>
   <p>Without it, AI writes code fast, looks right, ships, breaks. NUTS catches problems at plan stage where fixing costs a paragraph edit instead of a debugging session.</p>
+
+  <details class="explainer">
+    <summary>What does NUTS stand for?</summary>
+    <div class="explainer-content">
+      <p>NUTS = No Uncritiqued Task Ships. The name captures the core principle: nothing goes live without being checked from multiple angles. It's not about perfection — it's about catching the obvious mistakes that rushing creates.</p>
+    </div>
+  </details>
+
+  <details class="explainer">
+    <summary>What is convergence?</summary>
+    <div class="explainer-content">
+      <p>Convergence means each critique pass finds fewer issues until there are zero actionable findings left. Pass 1 might find 6 problems. After fixing those, pass 2 finds 3. Pass 3 finds 1. Pass 4 finds 0. The work has been refined to the point where there's nothing left to improve. That's convergence.</p>
+    </div>
+  </details>
 
   <h2>The 8 Steps</h2>
 
@@ -13,12 +37,12 @@
     </thead>
     <tbody>
       <tr><td><strong>1. Plan</strong></td><td>Research, identify gaps, write a plan</td><td>Describe before touching code</td></tr>
-      <tr><td><strong>2. Critique (<code>-c</code>)</strong></td><td>Adversarial passes until zero issues</td><td>Find everything wrong with the plan</td></tr>
+      <tr><td><strong>2. Critique (<code><a href="#phase-10">-c</a></code>)</strong></td><td>Adversarial passes until zero issues</td><td>Find everything wrong with the plan</td></tr>
       <tr><td><strong>3. Audit (pre-build)</strong></td><td>5-question diagnostic, Q1 = "what worries you?"</td><td>Last cheap exit before code</td></tr>
       <tr><td><strong>4. Build (<code>-build</code>)</strong></td><td>Implement the critiqued plan</td><td>Now build it</td></tr>
       <tr><td><strong>5. Review (<code>-c</code>)</strong></td><td>Adversarial passes until zero issues</td><td>Find everything wrong with what was built</td></tr>
       <tr><td><strong>6. Audit (post-build)</strong></td><td>5-question diagnostic on implementation</td><td>Did the code deliver the plan?</td></tr>
-      <tr><td><strong>7. Compound</strong></td><td>Push, then document the solution</td><td>Write down what you learned</td></tr>
+      <tr><td><strong>7. <a href="#phase-13">Compound</a></strong></td><td>Push, then document the solution</td><td>Write down what you learned</td></tr>
       <tr><td><strong>8. Summary</strong></td><td>Recap + auto-archive completed TODOs</td><td>The final output</td></tr>
     </tbody>
   </table>
