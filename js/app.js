@@ -463,7 +463,11 @@
     backdrop.classList.remove('visible');
     hamburger.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
-    sidebar.setAttribute('aria-hidden', 'true');
+    if (window.innerWidth <= 768) {
+      sidebar.setAttribute('aria-hidden', 'true');
+    } else {
+      sidebar.removeAttribute('aria-hidden');
+    }
   }
 
   function toggleMobileNav() {
