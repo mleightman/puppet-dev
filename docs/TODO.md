@@ -5,23 +5,23 @@
 
 ## Up Next
 
-- [ ] 1. Add favicon (currently 404ing in browser console)
-- [ ] 2. Content quality pass — review all 20 phases for accuracy, flow, and completeness
-- [ ] 3. Add interactive elements (collapsible explainer boxes, phase checklists per the plan)
-- [ ] 4. Test OS toggle across all phases — verify Mac/Windows command switching works everywhere
-- [ ] 5. Mobile responsiveness testing and fixes
-- [ ] 6. Add copy-to-clipboard buttons on all code blocks
-- [ ] 7. Cross-link phases (e.g., "you'll use this in Phase 12") for better navigation flow
-- [ ] 8. Add a "What you'll learn" summary at the top of each phase
-- [ ] 9. Print stylesheet testing (Prism.js + dark mode interactions)
-- [ ] 10. Accessibility pass — keyboard nav, screen reader, contrast ratios
+- [ ] 1. Content quality pass — review all 20 phases for accuracy, flow, and completeness
 
 ## Backlog
 
-- [ ] 11. Consider adding search functionality
-- [ ] 12. Consider progress export/share feature
-- [ ] 13. Consider adding estimated reading time per phase
-- [ ] 14. SEO meta tags for public discoverability
+- [ ] 2. Consider adding search functionality
+- [ ] 3. Consider progress export/share feature
+- [ ] 4. Consider adding estimated reading time per phase
 
 ## Archived
-<!-- Completed items moved here with date -->
+
+- [x] Add favicon *(2026-03-30)*
+- [x] Add interactive elements — collapsible explainer boxes, phase checklists *(2026-03-30)*
+- [x] Test OS toggle across all phases *(2026-03-30)*
+- [x] Mobile responsiveness testing and fixes *(2026-03-30)*
+- [x] Add copy-to-clipboard buttons on all code blocks *(2026-03-30)*
+- [x] Cross-link phases *(2026-03-30)*
+- [x] Add "What you'll learn" summary at top of each phase *(2026-03-30)*
+- [x] Print stylesheet testing *(2026-03-30)*
+- [x] Accessibility pass — keyboard nav, screen reader, contrast ratios *(2026-03-30)*
+- [x] SEO meta tags for public discoverability *(2026-03-30)*
