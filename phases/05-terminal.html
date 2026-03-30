@@ -66,6 +66,16 @@
     <p>Verify it installed:</p>
     <pre><code>git --version</code></pre>
     <p>You should see something like <code>git version 2.x.x</code>.</p>
+
+    <h4>Step 4: Install GitHub CLI</h4>
+    <p>The GitHub CLI (<code>gh</code>) lets Claude create pull requests and manage your repo directly from the terminal. You'll use this starting in <a href="#phase-08">Phase 8</a>.</p>
+    <pre><code>brew install gh</code></pre>
+    <p>Then log in to your GitHub account:</p>
+    <pre><code>gh auth login</code></pre>
+    <p>Follow the prompts — choose GitHub.com, HTTPS, and authenticate via browser when asked.</p>
+    <p>Verify it installed:</p>
+    <pre><code>gh --version</code></pre>
+    <p>You should see something like <code>gh version 2.x.x</code>.</p>
   </div>
 
   <div data-os="win">
@@ -107,7 +117,36 @@ sudo apt-get install -y nodejs</code></pre>
     <p>Git comes pre-installed with WSL2/Ubuntu. Verify:</p>
     <pre><code>git --version</code></pre>
     <p>You should see <code>git version 2.x.x</code>.</p>
+
+    <h4>Step 5: Install GitHub CLI</h4>
+    <p>The GitHub CLI (<code>gh</code>) lets Claude create pull requests and manage your repo directly from the terminal. You'll use this starting in <a href="#phase-08">Phase 8</a>.</p>
+    <pre><code>sudo apt install gh</code></pre>
+    <p>Then log in to your GitHub account:</p>
+    <pre><code>gh auth login</code></pre>
+    <p>Follow the prompts — choose GitHub.com, HTTPS, and authenticate via browser when asked.</p>
+    <p>Verify it installed:</p>
+    <pre><code>gh --version</code></pre>
+    <p>You should see something like <code>gh version 2.x.x</code>.</p>
   </div>
+
+  <h2>Get Your Project on Your Computer</h2>
+  <p>In <a href="#phase-02">Phase 2</a>, you created a repository on GitHub. Now let's download it to your computer so you can work on it locally.</p>
+  <p><strong>Note:</strong> Wherever you see <code>[your-project-name]</code> or <code>[your-github-username]</code> below, replace them with your actual repo name from Phase 2 and your GitHub username.</p>
+
+  <ol>
+    <li>Navigate to your Desktop:
+      <pre><code>cd ~/Desktop</code></pre>
+    </li>
+    <li>Clone your repository (replace the bracketed parts):
+      <pre><code>git clone https://github.com/[your-github-username]/[your-project-name].git</code></pre>
+      <p>Not sure what to type? Go to your repository on GitHub, click the green <strong>Code</strong> button, and copy the HTTPS URL.</p>
+    </li>
+    <li>Enter your project folder:
+      <pre><code>cd [your-project-name]</code></pre>
+    </li>
+  </ol>
+
+  <p>You're now inside your project folder. This is where you'll spend most of your time.</p>
 
   <h2>The 5 Commands You Need</h2>
   <p>These are the only terminal commands you need for daily use. Claude handles everything else.</p>
@@ -121,7 +160,7 @@ sudo apt-get install -y nodejs</code></pre>
         <td><code>pwd</code></td>
         <td>Shows which folder you're currently in</td>
         <td>When you're lost and need to know where you are</td>
-        <td><code>pwd</code> &rarr; <code>/Users/you/my-first-app</code></td>
+        <td><code>pwd</code> &rarr; <code>/Users/you/Desktop/todo-app</code></td>
       </tr>
       <tr>
         <td><code>ls</code></td>
@@ -133,7 +172,7 @@ sudo apt-get install -y nodejs</code></pre>
         <td><code>cd</code></td>
         <td>Navigate into a folder</td>
         <td>To move to your project folder before starting Claude</td>
-        <td><code>cd my-first-app</code></td>
+        <td><code>cd [your-project-name]</code></td>
       </tr>
       <tr>
         <td><code>git status</code></td>
@@ -162,7 +201,7 @@ sudo apt-get install -y nodejs</code></pre>
   <p>At the start of every coding session, you'll do this:</p>
   <ol>
     <li>Open your terminal</li>
-    <li><code>cd</code> into your project folder: <code>cd Desktop/my-first-app</code></li>
+    <li><code>cd</code> into your project folder: <code>cd ~/Desktop/[your-project-name]</code></li>
     <li><code>git pull</code> to get the latest code</li>
     <li>Start Claude Code (you'll learn this in Phase 6)</li>
   </ol>

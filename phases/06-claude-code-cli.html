@@ -18,7 +18,7 @@
   <ul>
     <li>A Claude Pro or Max subscription at <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> (or an Anthropic API key)</li>
     <li>Node.js installed (Phase 5)</li>
-    <li>A terminal open, navigated to your project folder</li>
+    <li>A terminal open (you'll navigate to your project folder in step 3 below)</li>
   </ul>
 
   <h2>Install Claude Code</h2>
@@ -33,9 +33,16 @@
         </div>
       </details>
     </li>
-    <li>Navigate to your project folder:
-      <pre><code>cd ~/Desktop/my-first-app</code></pre>
-      <p>This path works on both Mac and Windows (WSL uses the same path format).</p>
+    <li>Navigate to your project folder (replace <code>[your-project-name]</code> with whatever you named your repo in <a href="#phase-02">Phase 2</a>):
+
+      <div data-os="mac">
+        <pre><code>cd ~/Desktop/[your-project-name]</code></pre>
+      </div>
+
+      <div data-os="win">
+        <pre><code>cd /mnt/c/Users/[your-windows-username]/Desktop/[your-project-name]</code></pre>
+        <p>In WSL, your Windows Desktop is at <code>/mnt/c/Users/[your-windows-username]/Desktop/</code>. Replace <code>[your-windows-username]</code> with your Windows login name.</p>
+      </div>
     </li>
     <li>Run Claude Code for the first time:
       <pre><code>claude</code></pre>

@@ -11,6 +11,10 @@
     </ul>
   </div>
 
+  <div class="explainer" style="border-left: 4px solid var(--warning); padding: var(--spacing-sm) var(--spacing-md); margin-bottom: var(--spacing-md);">
+    <p><strong>Timing note:</strong> This phase sets up your Railway account and connects your repo. Your app won't actually deploy until you've written code in <a href="#phase-06">Phase 6</a>. That's fine — you're just getting the pipeline ready so that when you do write code, it goes live automatically.</p>
+  </div>
+
   <p>Right now your code lives on GitHub, but nobody can use it yet. Railway takes your code and runs it on a server so anyone with the link can see your app.</p>
 
   <details class="explainer">
@@ -35,7 +39,7 @@
   <ol>
     <li>From the Railway dashboard, click <strong>New Project</strong></li>
     <li>Select <strong>Deploy from GitHub Repo</strong></li>
-    <li>Choose the repo you created in Phase 2</li>
+    <li>Choose the repo you created in Phase 2. Your repo might only have a README file right now — that's expected.</li>
     <li>Railway will automatically detect your project type and start deploying</li>
     <li>Wait 30-90 seconds — you'll see a "Deploying..." status</li>
     <li>When it says <strong>Active</strong>, your app is live</li>
