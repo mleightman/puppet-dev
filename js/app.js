@@ -195,6 +195,10 @@
     initClipboard();
     initOsContent();
     initChecklist();
+    // Syntax highlighting for code blocks (Prism.js loaded via CDN)
+    if (typeof Prism !== 'undefined') {
+      Prism.highlightAllUnder(content);
+    }
   }
 
   // ---- Clipboard ----

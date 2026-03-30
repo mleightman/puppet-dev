@@ -485,8 +485,9 @@ a:hover {
   border-color: var(--success);
 }
 
-pre {
-  background: var(--code-bg);
+pre,
+pre[class*="language-"] {
+  background: var(--code-bg) !important;
   color: var(--code-text);
   padding: var(--spacing-md);
   overflow-x: auto;
@@ -724,5 +725,55 @@ p code, li code, td code {
 
   .site-title {
     font-size: var(--font-size-sm);
+  }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .site-header,
+  .sidebar,
+  .sidebar-backdrop,
+  .hamburger,
+  .skip-to-content,
+  .code-toolbar,
+  .phase-checklist,
+  .site-footer {
+    display: none !important;
+  }
+
+  .content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .content > .phase {
+    max-width: 100%;
+  }
+
+  body {
+    color: #1d1d1f;
+    background: #fff;
+  }
+
+  a {
+    color: #1d1d1f;
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #58585d;
+  }
+
+  a[href^="#"]::after {
+    content: "";
+  }
+
+  pre {
+    border: 1px solid #d1d1d6;
+    background: #f4f4f8 !important;
+    color: #2d2b55 !important;
   }
 }
