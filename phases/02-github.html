@@ -2,7 +2,95 @@
   <h1>Phase 2 — GitHub</h1>
   <p class="phase-subtitle">Your code's home — create an account and your first repository.</p>
 
-  <p>Content coming soon.</p>
+  <p>GitHub is where your code lives. Think of it as <strong>Google Docs for code</strong> — it stores every version of every file, lets you undo mistakes, and lets multiple people work on the same project without stepping on each other.</p>
+
+  <h2>Create Your Account</h2>
+  <ol>
+    <li>Go to <a href="https://github.com" target="_blank" rel="noopener">github.com</a></li>
+    <li>Click <strong>Sign up</strong></li>
+    <li>Enter your email, create a password, choose a username</li>
+    <li>Verify your email</li>
+    <li>You now have a GitHub account</li>
+  </ol>
+
+  <h2>Create Your First Repository</h2>
+  <p>A repository ("repo") is a folder for your project. Everything related to your app — code, images, config — lives inside it.</p>
+  <ol>
+    <li>Click the <strong>+</strong> icon in the top-right corner of GitHub</li>
+    <li>Click <strong>New repository</strong></li>
+    <li>Name it something like <code>my-first-app</code> (lowercase, hyphens instead of spaces)</li>
+    <li>Leave it set to <strong>Public</strong> (you can change this later)</li>
+    <li>Check <strong>Add a README file</strong></li>
+    <li>Click <strong>Create repository</strong></li>
+  </ol>
+  <p>That's it. You now have a GitHub repo with your name on it.</p>
+
+  <h2>Key Concepts</h2>
+  <p>You'll hear these terms constantly. Here's what they mean:</p>
+
+  <table>
+    <thead>
+      <tr><th>Term</th><th>What It Is</th><th>Analogy</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Repository (repo)</strong></td>
+        <td>A project folder that tracks every change ever made to every file inside it</td>
+        <td>A Google Drive folder with infinite version history</td>
+      </tr>
+      <tr>
+        <td><strong>Commit</strong></td>
+        <td>A snapshot of your project at one moment in time. Each commit has a message explaining what changed and why.</td>
+        <td>Pressing "Save" in a video game — you can always reload from that save point</td>
+      </tr>
+      <tr>
+        <td><strong>Branch</strong></td>
+        <td>A separate copy of your project where you can make changes without affecting the main version. When you're happy with the changes, you merge the branch back.</td>
+        <td>Making a "draft" copy of a document, editing it, then replacing the original when the draft is ready</td>
+      </tr>
+      <tr>
+        <td><strong>Push</strong></td>
+        <td>Upload your local changes to GitHub so they're saved online</td>
+        <td>Syncing your local files to the cloud</td>
+      </tr>
+      <tr>
+        <td><strong>Pull</strong></td>
+        <td>Download the latest changes from GitHub to your computer</td>
+        <td>Refreshing your local folder to get the latest cloud version</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <details class="explainer">
+    <summary>What is .gitignore?</summary>
+    <div class="explainer-content">
+      <p><code>.gitignore</code> is a file that tells Git which files to skip — they won't be uploaded to GitHub. You use it for:</p>
+      <ul>
+        <li><strong>Secrets</strong> — passwords, API keys, anything private (because GitHub repos can be public)</li>
+        <li><strong>Local config</strong> — files specific to your computer that won't work on someone else's</li>
+        <li><strong>Junk files</strong> — things your OS or editor creates automatically (like <code>.DS_Store</code> on Mac)</li>
+      </ul>
+      <p>Claude will set up your <code>.gitignore</code> for you. You just need to know it exists so you don't accidentally commit (upload) passwords to GitHub.</p>
+    </div>
+  </details>
+
+  <details class="explainer">
+    <summary>Public vs. Private repos?</summary>
+    <div class="explainer-content">
+      <p><strong>Public:</strong> Anyone can see your code. Good for portfolios and open source. Free.</p>
+      <p><strong>Private:</strong> Only you (and people you invite) can see it. Also free on GitHub.</p>
+      <p>For learning, public is fine. If your app handles real user data or has secrets, use private. You can always switch later.</p>
+    </div>
+  </details>
+
+  <h2>Don't Worry About</h2>
+  <p>These things exist but you don't need them yet:</p>
+  <ul>
+    <li>GitHub Actions (automated workflows — Phase 14 territory)</li>
+    <li>Pull requests (you'll learn these in Phase 8)</li>
+    <li>Branching strategies (just use the <code>main</code> branch for now)</li>
+    <li>GitHub Issues, Projects, or Wikis</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>

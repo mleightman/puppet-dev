@@ -2,7 +2,165 @@
   <h1>Phase 5 — Terminal Setup</h1>
   <p class="phase-subtitle">Install your tools and learn the 5 commands that matter.</p>
 
-  <p>Content coming soon.</p>
+  <p>The terminal is a text-based way to control your computer. Instead of clicking buttons, you type commands. It looks intimidating at first, but you only need about 5 commands for daily use — Claude handles everything else.</p>
+
+  <details class="explainer">
+    <summary>Why use the terminal at all?</summary>
+    <div class="explainer-content">
+      <p>Claude Code runs in the terminal. It reads your files, writes code, and runs commands — all through text. The terminal is the workshop where the building happens. You don't need to become a terminal expert — just know how to open it, navigate to your project folder, and run a few basic commands.</p>
+    </div>
+  </details>
+
+  <h2>Open Your Terminal</h2>
+
+  <div data-os="mac">
+    <h3>Mac</h3>
+    <ol>
+      <li>Press <strong>Cmd + Space</strong> to open Spotlight</li>
+      <li>Type <strong>Terminal</strong></li>
+      <li>Press <strong>Enter</strong></li>
+    </ol>
+    <p>You'll see a window with a blinking cursor. That's the terminal. It's ready for commands.</p>
+  </div>
+
+  <div data-os="win">
+    <h3>Windows</h3>
+    <ol>
+      <li>Press <strong>Win + S</strong> to open Search</li>
+      <li>Type <strong>Windows Terminal</strong> (or <strong>PowerShell</strong> if Terminal isn't installed)</li>
+      <li>Press <strong>Enter</strong></li>
+    </ol>
+    <p>You'll see a window with a blinking cursor. That's the terminal. It's ready for commands.</p>
+  </div>
+
+  <h2>Install Your Tools</h2>
+
+  <div data-os="mac">
+    <h3>Mac Setup</h3>
+    <p>Mac needs three things: Homebrew (a package manager), Node.js (runs JavaScript), and Git (tracks code changes).</p>
+
+    <h4>Step 1: Install Homebrew</h4>
+    <p>Homebrew is like an app store for developer tools. Paste this into your terminal and press Enter:</p>
+    <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+    <p>This takes a few minutes. Follow any on-screen prompts. When it's done, you'll see "Installation successful."</p>
+
+    <h4>Step 2: Install Node.js</h4>
+    <pre><code>brew install node</code></pre>
+    <p>Verify it installed:</p>
+    <pre><code>node --version</code></pre>
+    <p>You should see a version number like <code>v20.x.x</code>. If you see a version number, it worked.</p>
+
+    <h4>Step 3: Install Git</h4>
+    <p>Git usually comes with Mac's developer tools. Run this to trigger the install:</p>
+    <pre><code>xcode-select --install</code></pre>
+    <p>A popup will appear asking to install command line developer tools. Click <strong>Install</strong> and wait (this can take 5-10 minutes).</p>
+    <p>Verify it installed:</p>
+    <pre><code>git --version</code></pre>
+    <p>You should see something like <code>git version 2.x.x</code>.</p>
+  </div>
+
+  <div data-os="win">
+    <h3>Windows Setup</h3>
+    <p>Windows needs WSL2 (a Linux environment inside Windows), Node.js, and Git.</p>
+
+    <h4>Step 1: Install WSL2</h4>
+
+    <details class="explainer">
+      <summary>What is WSL2?</summary>
+      <div class="explainer-content">
+        <p>WSL2 (Windows Subsystem for Linux) lets you run Linux commands on Windows. Most developer tools are built for Linux/Mac first. WSL2 gives you a Linux terminal inside Windows so you can use the same commands as Mac users. Think of it as "Linux inside Windows."</p>
+      </div>
+    </details>
+
+    <p>Open PowerShell as Administrator (right-click Start button, select "Terminal (Admin)"), then run:</p>
+    <pre><code>wsl --install</code></pre>
+    <p>This installs WSL2 with Ubuntu (a version of Linux). <strong>Restart your computer</strong> when prompted.</p>
+    <p>After restarting, Ubuntu will open and ask you to create a username and password. This is your Linux username — pick something simple.</p>
+
+    <h4>Step 2: Install Windows Terminal (if not already installed)</h4>
+    <p>Windows Terminal is a nicer terminal app. It may already be installed. If not:</p>
+    <ol>
+      <li>Open the <strong>Microsoft Store</strong></li>
+      <li>Search for <strong>Windows Terminal</strong></li>
+      <li>Click <strong>Install</strong></li>
+    </ol>
+    <p>Once installed, open Windows Terminal and select the <strong>Ubuntu</strong> tab (or set it as default).</p>
+
+    <h4>Step 3: Install Node.js (inside WSL2)</h4>
+    <p>In your Ubuntu terminal, run these commands one at a time:</p>
+    <pre><code>curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs</code></pre>
+    <p>Verify it installed:</p>
+    <pre><code>node --version</code></pre>
+    <p>You should see <code>v20.x.x</code>.</p>
+
+    <h4>Step 4: Git</h4>
+    <p>Git comes pre-installed with WSL2/Ubuntu. Verify:</p>
+    <pre><code>git --version</code></pre>
+    <p>You should see <code>git version 2.x.x</code>.</p>
+  </div>
+
+  <h2>The 5 Commands You Need</h2>
+  <p>These are the only terminal commands you need for daily use. Claude handles everything else.</p>
+
+  <table>
+    <thead>
+      <tr><th>Command</th><th>What It Does</th><th>When You'd Use It</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>pwd</code></td>
+        <td>Shows which folder you're currently in</td>
+        <td>When you're lost and need to know where you are</td>
+        <td><code>pwd</code> &rarr; <code>/Users/you/my-first-app</code></td>
+      </tr>
+      <tr>
+        <td><code>ls</code></td>
+        <td>Lists all files and folders in the current directory</td>
+        <td>To see what's in a folder</td>
+        <td><code>ls</code> &rarr; <code>index.html  package.json  node_modules</code></td>
+      </tr>
+      <tr>
+        <td><code>cd</code></td>
+        <td>Navigate into a folder</td>
+        <td>To move to your project folder before starting Claude</td>
+        <td><code>cd my-first-app</code></td>
+      </tr>
+      <tr>
+        <td><code>git status</code></td>
+        <td>Shows which files have changed since your last commit</td>
+        <td>Before committing, to see what's been modified</td>
+        <td><code>git status</code> &rarr; shows modified files in red/green</td>
+      </tr>
+      <tr>
+        <td><code>git pull</code></td>
+        <td>Downloads the latest code from GitHub to your computer</td>
+        <td>At the start of a session, to make sure you have the latest version</td>
+        <td><code>git pull</code> &rarr; <code>Already up to date.</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <details class="explainer">
+    <summary>What does the terminal output look like?</summary>
+    <div class="explainer-content">
+      <p>When you type a command and press Enter, the terminal shows the result on the next line(s) and then gives you a new prompt (the blinking cursor) for your next command. If nothing shows up and you get a new prompt, the command worked silently — that's normal for many commands.</p>
+      <p>If you see red text or the word "error," something went wrong. Copy the error message and paste it to Claude — Claude will help you fix it.</p>
+    </div>
+  </details>
+
+  <h2>Quick Navigation Pattern</h2>
+  <p>At the start of every coding session, you'll do this:</p>
+  <ol>
+    <li>Open your terminal</li>
+    <li><code>cd</code> into your project folder: <code>cd Desktop/my-first-app</code></li>
+    <li><code>git pull</code> to get the latest code</li>
+    <li>Start Claude Code (you'll learn this in Phase 6)</li>
+  </ol>
+  <p>That's the whole routine. Four steps, every time.</p>
+
+  <h2>What's Next</h2>
+  <p>You now have all the infrastructure: a GitHub repo, a way to deploy (Railway), and a terminal with your tools installed. Next up — you'll install Claude Code and build your first real thing.</p>
 
   <div class="phase-checklist">
     <label>

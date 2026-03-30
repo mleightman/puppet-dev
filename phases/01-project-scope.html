@@ -1,8 +1,111 @@
 <div class="phase" data-phase="01">
   <h1>Phase 1 — Project Scope</h1>
-  <p class="phase-subtitle">Write your project scope in web chat before touching code.</p>
+  <p class="phase-subtitle">Write your project scope in web chat before touching any code.</p>
 
-  <p>Content coming soon.</p>
+  <p>Before you build anything, you need to know <strong>what</strong> you're building. This phase happens in <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> (the briefing room), not in the terminal.</p>
+
+  <h2>What You'll Do</h2>
+  <ol>
+    <li>Open <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> in your browser</li>
+    <li>Describe your app idea in plain English</li>
+    <li>Let Claude ask you questions to narrow the scope</li>
+    <li>End up with a <strong>project scope document</strong> — a clear brief for what you're building</li>
+    <li>Save it somewhere you can find it later (Google Doc, text file, or Notes app)</li>
+  </ol>
+
+  <h2>What Goes in a Scope Doc</h2>
+  <p>Your scope doc is a contract between you and Claude. It says exactly what you're building and — just as importantly — what you're <strong>not</strong> building.</p>
+
+  <table>
+    <thead>
+      <tr><th>Section</th><th>What to Write</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>What the app does</strong></td><td>1-2 paragraphs describing the core idea</td></tr>
+      <tr><td><strong>Who it's for</strong></td><td>Who will use this?</td></tr>
+      <tr><td><strong>Core features</strong></td><td>The 3-5 things the app must do</td></tr>
+      <tr><td><strong>Exclusion list</strong></td><td>What is NOT in scope — features you're deliberately skipping</td></tr>
+      <tr><td><strong>Tech stack</strong></td><td>Claude suggests this. For this tutorial, default to JavaScript/Node.js.</td></tr>
+      <tr><td><strong>Acceptance criteria</strong></td><td>How you'll know it's done — specific, testable checkmarks</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Example: Scope Doc for a To-Do App</h2>
+  <p>Here's what a real scope doc looks like. Yours doesn't need to be fancier than this.</p>
+
+  <pre><code>PROJECT SCOPE: Simple To-Do App
+
+What it does:
+A web app where you can add tasks, check them off, and delete them.
+Tasks persist between visits (they're saved, not lost on refresh).
+
+Who it's for:
+Just me, for now. Maybe friends later.
+
+Core features:
+- Add a task with a text input and button
+- Check off a task (strikethrough + move to "done" section)
+- Delete a task
+- Tasks are saved (persist between page refreshes)
+
+NOT in scope (don't build these):
+- User accounts or login
+- Due dates or priorities
+- Mobile app (web only)
+- Sharing lists with other people
+- Categories or tags
+
+Tech stack:
+JavaScript, Node.js, Express, PostgreSQL.
+(Claude suggested this based on the "tasks persist" requirement.)
+
+Acceptance criteria:
+- I can add a task and it appears on the page
+- I can check off a task and it moves to "done"
+- I can delete a task and it disappears
+- When I refresh the page, my tasks are still there
+- The app is live at a public URL</code></pre>
+
+  <details class="explainer">
+    <summary>Why is the exclusion list so important?</summary>
+    <div class="explainer-content">
+      <p>Claude is eager to help. If you say "build me a to-do app," Claude might add user accounts, due dates, drag-and-drop sorting, email reminders, and a mobile version — all without asking. The exclusion list is how you say "stop, just build what I asked for." You'll reference it constantly.</p>
+    </div>
+  </details>
+
+  <details class="explainer">
+    <summary>What is a "tech stack"?</summary>
+    <div class="explainer-content">
+      <p>A tech stack is the set of programming languages and tools Claude will use to build your app. Think of it like choosing materials for a house — wood vs. brick vs. steel. You don't need to understand the difference yet. For this tutorial, we'll use <strong>JavaScript and Node.js</strong> because they work well with the tools in later phases (GitHub, Railway, Claude Code).</p>
+      <p>When you chat with Claude in Phase 1, it may suggest a tech stack. If it suggests something other than JavaScript/Node.js, you can say: "Let's use JavaScript and Node.js for this project."</p>
+    </div>
+  </details>
+
+  <details class="explainer">
+    <summary>What are "acceptance criteria"?</summary>
+    <div class="explainer-content">
+      <p>Acceptance criteria are specific, testable statements about what "done" looks like. Not "the app works" — that's vague. Instead: "I can add a task and it appears on the page." You test this by literally doing it. If it works, that criterion is met.</p>
+    </div>
+  </details>
+
+  <h2>Tips for Your Conversation with Claude</h2>
+  <ul>
+    <li><strong>Start vague, get specific.</strong> "I want to build a to-do app" is a fine opening. Claude will ask follow-up questions.</li>
+    <li><strong>Let Claude interview you.</strong> Say: "Ask me questions about what I want." Claude is good at this.</li>
+    <li><strong>Say no to extras.</strong> If Claude suggests features you don't want, say "Not in scope."</li>
+    <li><strong>Keep it small.</strong> Your first app should be simple enough to build in one session. You can always add features later.</li>
+  </ul>
+
+  <h2>Where to Save Your Scope Doc</h2>
+  <p>Save it anywhere you can copy-paste from later. In Phase 6, you'll paste this scope doc directly to Claude Code and say "build me the starter version."</p>
+  <ul>
+    <li>A Google Doc</li>
+    <li>A text file on your Desktop</li>
+    <li>Your Notes app</li>
+    <li>Copy it from the Claude chat and paste it somewhere</li>
+  </ul>
+
+  <p>This scope doc becomes the foundation of everything. In Phase 8, it evolves into your CLAUDE.md — the file that teaches Claude your project every single session.</p>
 
   <div class="phase-checklist">
     <label>

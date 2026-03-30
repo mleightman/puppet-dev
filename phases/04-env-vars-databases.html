@@ -1,8 +1,108 @@
 <div class="phase" data-phase="04">
-  <h1>Phase 4 — Environment Variables & Databases</h1>
+  <h1>Phase 4 — Environment Variables &amp; Databases</h1>
   <p class="phase-subtitle">Secrets, config, and where your app stores data.</p>
 
-  <p>Content coming soon.</p>
+  <p>You might not need this for your very first simple app. But read it now so you know the pattern — you'll use it as soon as your app needs to keep secrets safe or remember data between visits.</p>
+
+  <h2>Environment Variables</h2>
+  <p>Environment variables ("env vars") are secrets your app reads when it starts up — passwords, API keys, database addresses, anything you don't want visible in your code.</p>
+
+  <details class="explainer">
+    <summary>Why can't I just put passwords in my code?</summary>
+    <div class="explainer-content">
+      <p>Because your code lives on GitHub, and GitHub repos can be public. If you put a password in your code file and push it to GitHub, anyone can see it. Even in a private repo, it's bad practice — if the repo ever becomes public (accidentally or intentionally), your secrets are exposed.</p>
+      <p>Environment variables keep secrets separate from code. Your code says "read the password from the environment" — the actual password lives on the server (Railway), never in your GitHub repo.</p>
+    </div>
+  </details>
+
+  <h3>How Env Vars Work</h3>
+
+  <table>
+    <thead>
+      <tr><th>Where</th><th>What Happens</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Your code</strong></td><td>Says: "read the value of <code>DATABASE_URL</code> from the environment"</td></tr>
+      <tr><td><strong>Railway dashboard</strong></td><td>Stores the actual value: <code>postgresql://user:pass@host/db</code></td></tr>
+      <tr><td><strong>When your app starts</strong></td><td>Railway injects the value so your code can read it</td></tr>
+    </tbody>
+  </table>
+
+  <h3>How to Set Env Vars in Railway</h3>
+  <ol>
+    <li>Open your project in the <a href="https://railway.app" target="_blank" rel="noopener">Railway dashboard</a></li>
+    <li>Click on your service (the box that represents your app)</li>
+    <li>Click the <strong>Variables</strong> tab</li>
+    <li>Click <strong>New Variable</strong></li>
+    <li>Enter the name (like <code>API_KEY</code>) and the value (the actual secret)</li>
+    <li>Click <strong>Add</strong> — Railway will automatically redeploy your app with the new variable</li>
+  </ol>
+
+  <h3>How to Tell Claude About Env Vars</h3>
+  <p>When you're working with Claude Code, say things like:</p>
+  <ul>
+    <li>"This API key should be an environment variable, not hardcoded"</li>
+    <li>"Read the database URL from <code>process.env.DATABASE_URL</code>"</li>
+    <li>"Make sure no secrets are in the code — use env vars"</li>
+  </ul>
+  <p>Claude knows how to use environment variables. You just need to remind it when you see a secret in the code.</p>
+
+  <h2>Databases</h2>
+
+  <details class="explainer">
+    <summary>What is a database?</summary>
+    <div class="explainer-content">
+      <p>A database is a spreadsheet that your app reads and writes to automatically. When a user creates an account, adds a post, or saves a setting, that data goes into the database. When they come back later, the app reads the database to show their stuff.</p>
+      <p>Without a database, everything disappears when the page refreshes. With one, data persists.</p>
+    </div>
+  </details>
+
+  <h3>When You Need a Database</h3>
+  <ul>
+    <li>User accounts or login</li>
+    <li>Saving data that persists between visits (posts, tasks, settings)</li>
+    <li>Anything where users create, edit, or delete content</li>
+  </ul>
+  <p>If your app is just a static website with no user data, you don't need one.</p>
+
+  <h3>How to Add a Database on Railway</h3>
+  <ol>
+    <li>In your Railway project, click <strong>New</strong></li>
+    <li>Select <strong>Database</strong></li>
+    <li>Choose <strong>PostgreSQL</strong> (the most common choice)</li>
+    <li>Railway creates the database and automatically generates a <code>DATABASE_URL</code> environment variable</li>
+    <li>Tell Claude: "I have a PostgreSQL database on Railway. The connection URL is in the <code>DATABASE_URL</code> env var."</li>
+    <li>Claude handles the rest — writing the code to connect, creating tables, querying data</li>
+  </ol>
+
+  <details class="explainer">
+    <summary>What is PostgreSQL?</summary>
+    <div class="explainer-content">
+      <p>PostgreSQL (often called "Postgres") is a type of database — one of the most popular and reliable. It stores data in tables (like spreadsheets). There are other databases (MySQL, SQLite, MongoDB), but PostgreSQL is the standard choice for most web apps. Railway makes it easy to set up.</p>
+    </div>
+  </details>
+
+  <details class="explainer">
+    <summary>What is a "connection URL"?</summary>
+    <div class="explainer-content">
+      <p>A connection URL is an address that tells your app where the database is and how to log in. It looks like: <code>postgresql://username:password@hostname:5432/database_name</code>. You never need to type this — Railway generates it automatically. You just tell Claude it exists as an environment variable.</p>
+    </div>
+  </details>
+
+  <details class="explainer">
+    <summary>Do I need to learn SQL?</summary>
+    <div class="explainer-content">
+      <p>No. SQL is the language used to talk to databases. Claude writes all the SQL for you. You just describe what data you want to store and retrieve in plain English. Claude will write the correct SQL queries, create the tables, and set up the connections.</p>
+    </div>
+  </details>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>SQL syntax or database design</li>
+    <li>Database backups (Railway handles this)</li>
+    <li>Database performance or indexing</li>
+    <li>Why PostgreSQL over alternatives (it's the standard; trust the default)</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>

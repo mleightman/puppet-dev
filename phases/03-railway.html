@@ -2,7 +2,112 @@
   <h1>Phase 3 — Railway</h1>
   <p class="phase-subtitle">Get your app live on the internet.</p>
 
-  <p>Content coming soon.</p>
+  <p>Right now your code lives on GitHub, but nobody can use it yet. Railway takes your code and runs it on a server so anyone with the link can see your app.</p>
+
+  <details class="explainer">
+    <summary>What is a server?</summary>
+    <div class="explainer-content">
+      <p>A server is a computer that's always on, always connected to the internet, and always ready to show your app to anyone who visits the URL. Your laptop turns off when you close it — a server doesn't. Railway provides the server. You provide the code.</p>
+    </div>
+  </details>
+
+  <p><strong>Note:</strong> If your first project is a simple website with no backend (no database, no login, no server logic), you can use <strong>GitHub Pages</strong> instead of Railway — it's free and simpler. Come back to Railway when your app needs a server.</p>
+
+  <h2>Create Your Railway Account</h2>
+  <ol>
+    <li>Go to <a href="https://railway.app" target="_blank" rel="noopener">railway.app</a></li>
+    <li>Click <strong>Login</strong></li>
+    <li>Choose <strong>Login with GitHub</strong> (use the account you created in Phase 2)</li>
+    <li>Authorize Railway to access your GitHub repos</li>
+    <li>You now have a Railway account connected to GitHub</li>
+  </ol>
+
+  <h2>Deploy Your App</h2>
+  <ol>
+    <li>From the Railway dashboard, click <strong>New Project</strong></li>
+    <li>Select <strong>Deploy from GitHub Repo</strong></li>
+    <li>Choose the repo you created in Phase 2</li>
+    <li>Railway will automatically detect your project type and start deploying</li>
+    <li>Wait 30-90 seconds — you'll see a "Deploying..." status</li>
+    <li>When it says <strong>Active</strong>, your app is live</li>
+  </ol>
+
+  <h2>Get Your Public URL</h2>
+  <ol>
+    <li>Click on your deployment in the Railway dashboard</li>
+    <li>Go to <strong>Settings</strong> &rarr; <strong>Networking</strong></li>
+    <li>Click <strong>Generate Domain</strong></li>
+    <li>Railway gives you a URL like <code>your-app-name.up.railway.app</code></li>
+    <li>Open that URL in your browser — you should see your app</li>
+  </ol>
+
+  <h2>The Auto-Deploy Loop</h2>
+  <p>Here's the magic: once Railway is connected to your GitHub repo, every time you push new code to GitHub, Railway automatically rebuilds and redeploys your app. You don't have to do anything.</p>
+
+  <table>
+    <thead>
+      <tr><th>Step</th><th>What Happens</th><th>How Long</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1. You push code to GitHub</td><td>GitHub receives your changes</td><td>Instant</td></tr>
+      <tr><td>2. Railway detects the push</td><td>Railway starts rebuilding your app</td><td>A few seconds</td></tr>
+      <tr><td>3. Railway rebuilds</td><td>Your app is compiled and restarted</td><td>30-90 seconds</td></tr>
+      <tr><td>4. New version is live</td><td>Anyone visiting the URL sees the updated app</td><td>Done</td></tr>
+    </tbody>
+  </table>
+
+  <p>Your site does <strong>not</strong> go down during a redeploy. Railway keeps the old version running until the new one is ready, then switches over instantly.</p>
+
+  <details class="explainer">
+    <summary>What is a deployment?</summary>
+    <div class="explainer-content">
+      <p>A deployment is the process of uploading your code to a server and making it available to users. Every time you push code to GitHub, Railway creates a new deployment. You can see all your deployments in the Railway dashboard — each one is a snapshot of your app at that moment.</p>
+    </div>
+  </details>
+
+  <details class="explainer">
+    <summary>What is a domain?</summary>
+    <div class="explainer-content">
+      <p>A domain is the URL people type to visit your app, like <code>your-app.up.railway.app</code>. Railway gives you a free subdomain. If you want a custom domain (like <code>myapp.com</code>), you can buy one later and point it at Railway.</p>
+    </div>
+  </details>
+
+  <h2>Costs</h2>
+
+  <table>
+    <thead>
+      <tr><th>Tier</th><th>Cost</th><th>What You Get</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Trial</strong></td><td>Free</td><td>$5 of usage (enough for a few weeks of a simple app)</td></tr>
+      <tr><td><strong>Hobby</strong></td><td>$5/month</td><td>$5 of usage included, pay for overage. Most beginner apps stay under $5.</td></tr>
+    </tbody>
+  </table>
+
+  <p>You won't get a surprise bill. Railway stops your app when you hit the limit and asks if you want to upgrade. For a simple app, you'll likely stay in the free tier for a while.</p>
+
+  <h2>Alternatives to Railway</h2>
+  <p>Railway is our recommendation because it handles any stack with minimal setup. But there are others:</p>
+
+  <table>
+    <thead>
+      <tr><th>Platform</th><th>Best For</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>GitHub Pages</strong></td><td>Static websites (no backend, no database) — free</td></tr>
+      <tr><td><strong>Vercel</strong></td><td>Next.js and frontend-heavy apps</td></tr>
+      <tr><td><strong>Render</strong></td><td>General-purpose, similar to Railway</td></tr>
+      <tr><td><strong>Netlify</strong></td><td>Static sites and serverless functions</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Don't Worry About</h2>
+  <ul>
+    <li>How servers work at the OS level</li>
+    <li>Docker, containers, or infrastructure</li>
+    <li>Scaling or performance optimization</li>
+    <li>CI/CD pipelines (Railway handles this automatically)</li>
+  </ul>
 
   <div class="phase-checklist">
     <label>
